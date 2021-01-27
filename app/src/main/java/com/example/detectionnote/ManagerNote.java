@@ -10,8 +10,13 @@
  */
 package com.example.detectionnote;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
@@ -47,7 +52,7 @@ public class ManagerNote {
     final double SI_FQ=61.74;
 
 
-    Map<Integer, Double> notes;
+    ArrayList<Note> notes;
     private double margeErreur = 1.5;
 
     public ManagerNote(){definirNotes();}
@@ -57,44 +62,67 @@ public class ManagerNote {
     }
 
 
-    public int getNoteLaPlusProche(double frequence){
+    public Note getNoteLaPlusProche(double frequence){
 
         int gammeTemperee=getGammeTemperee(frequence);
 
         int noteProche=DO;
+
         double distMin=abs(frequence-DO_FQ*pow(2,gammeTemperee));
 
+
         for(int i=REB;i<=SI;i++){
-            double distI=abs(frequence-notes.get(i)*pow(2,gammeTemperee));
+            double distI=abs(frequence-notes.get(i-1).getFrequence()*pow(2,gammeTemperee));
             if(distMin>distI){
                 distMin=distI;
                 noteProche=i;
             }
         }
-        return noteProche;
+        return notes.get(noteProche-1);
     }
     public double getDistanceNoteLaPlusProche(double frequence) {
-        int note = getNoteLaPlusProche(frequence);
+        int note = getNoteLaPlusProche(frequence).getNote();
         int gammeTemperee = getGammeTemperee(frequence);
 
-        return frequence - notes.get(note)*pow(2,gammeTemperee);
+        return (frequence - notes.get(note-1).getFrequence()*pow(2,gammeTemperee));
     }
     public boolean estUneNote(double frequence){
-        if (abs(getDistanceNoteLaPlusProche(frequence))>margeErreur*getGammeTemperee(frequence))return false;
+        Log.e("estUneNotes", "freq:"+frequence);
+        Log.e("estUneNotes",getDistanceNoteLaPlusProche(frequence)+">"+margeErreur*getGammeTemperee(frequence));
+        if (abs(getDistanceNoteLaPlusProche(frequence))>margeErreur*getGammeTemperee(frequence)){
+
+            return false;
+        }
+
+        Log.e("estUneNotes", "C UNE NOTEUH");
         return true;
     }
 
     //Lier toutes les notes avec les bonnes fréquence dans laMap margeErreur
     private void definirNotes(){
-        notes = new HashMap<Integer,Double>();
-        notes.put(DO,DO_FQ);notes.put(REB,REB_FQ);notes.put(RE,RE_FQ);
-        notes.put(MIB,MIB_FQ);notes.put(MI,MI_FQ);notes.put(FA,FA_FQ);
-        notes.put(SOLB,SOLB_FQ);notes.put(SOL,SOL_FQ);notes.put(LAB,LAB_FQ);
-        notes.put(LA,LA_FQ);notes.put(SIB,SIB_FQ);notes.put(SI,SI_FQ);
+
+        notes = new ArrayList<Note>();
+        notes.add(new Note(DO,DO_FQ));
+        notes.add(new Note(REB,REB_FQ));
+        notes.add(new Note(RE,RE_FQ));
+        notes.add(new Note(MIB,MIB_FQ));
+        notes.add(new Note(MI,MI_FQ));
+        notes.add(new Note(FA,FA_FQ));
+        notes.add(new Note(SOLB,SOLB_FQ));
+        notes.add(new Note(SOL,SOL_FQ));
+        notes.add(new Note(LAB,LAB_FQ));
+        notes.add(new Note(LA,LA_FQ));
+        notes.add(new Note(SIB,SIB_FQ));
+        notes.add(new Note(SI,SI_FQ));
+
     }
 
     private int getGammeTemperee(double frequence){
         int gammeTemperee=1;
+        /**
+         * SI_FQ*pow(2,gammeTemperee) = Limite de la gamme temperee
+         * gammeTemperee*margeErreur = marge d'erreur, plus la gamme temperee est grande, plus la marge est permissive
+         */
         while(frequence > SI_FQ*pow(2,gammeTemperee)+gammeTemperee*margeErreur){
             gammeTemperee++;
         }
