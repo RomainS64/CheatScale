@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CheatScale</string>
+    <string name="identifier_une_tonalit">Identifier une tonalité</string>
+    <string name="accordeur">Accordeur</string>
+    <string name="m_tronome">Métronome</string>
+    <string name="logo_cheatscales">logo_cheatscales</string>
 </resources>

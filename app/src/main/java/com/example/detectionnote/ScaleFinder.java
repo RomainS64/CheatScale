@@ -1,17 +1,14 @@
 package com.example.detectionnote;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ScaleFinder extends AppCompatActivity {
 
     Button start,stop,analyser;
     TextView txt,note;
@@ -24,12 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.scale_finder);
 
-        //Demander la permition d'utiliser le microphone
-        demanderPermission();
+        Log.e("MAIN", "ishish");
 
         //Initialisation des managers
         audioManager = new ManagerAudio();
@@ -143,23 +138,5 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         }
-    }
-
-    private void demanderPermission(){
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECORD_AUDIO},
-                    1234);
-        }
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET},
-                    1234);
-        }
-
     }
 }
