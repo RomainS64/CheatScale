@@ -1,4 +1,4 @@
-package com.example.detectionnote;
+package com.example.scalefinder.detectionnote;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,8 +13,8 @@ public class ScaleFinder extends AppCompatActivity {
     Button start,stop,analyser;
     TextView txt,note;
 
-    ManagerAudio audioManager;
-    ManagerNote noteManager;
+    com.example.scalefinder.detectionnote.ManagerAudio audioManager;
+    com.example.scalefinder.detectionnote.ManagerNote noteManager;
 
     Thread AfficherNote;
     boolean stopAff=false;//tant que false, le thread afficherNote continue
@@ -27,8 +27,8 @@ public class ScaleFinder extends AppCompatActivity {
         Log.e("MAIN", "ishish");
 
         //Initialisation des managers
-        audioManager = new ManagerAudio();
-        noteManager = new ManagerNote();
+        audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
+        noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
 
         //Initialisation des textes
         txt = findViewById(R.id.txt);
@@ -87,7 +87,7 @@ public class ScaleFinder extends AppCompatActivity {
 
                 if (noteManager.estUneNote(frequence)) {
                     Log.e("AFFICHAGE NOTE", "coucou j'affiche");
-                    Note noteProche = noteManager.getNoteLaPlusProche(frequence);
+                    com.example.scalefinder.detectionnote.Note noteProche = noteManager.getNoteLaPlusProche(frequence);
                     note.setText(noteProche.toString() + "/" + noteManager.getDistanceNoteLaPlusProche(noteProche.getFrequence()));
 
 

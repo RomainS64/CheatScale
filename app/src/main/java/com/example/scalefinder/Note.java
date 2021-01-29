@@ -1,4 +1,4 @@
-package com.example.detectionnote;
+package com.example.scalefinder.detectionnote;
 
 public class Note {
     int note;

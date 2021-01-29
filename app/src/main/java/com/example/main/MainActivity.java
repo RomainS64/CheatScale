@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.detectionnote.R;
-import com.example.detectionnote.*;
+import com.example.scalefinder.ScaleFinder;
+import com.example.scalefinder.detectionnote.R;
 import com.example.accordeur.*;
 import com.example.metronome.*;
 
