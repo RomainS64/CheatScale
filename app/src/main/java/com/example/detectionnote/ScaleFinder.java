@@ -86,48 +86,9 @@ public class ScaleFinder extends AppCompatActivity {
                 txt.setText("" + frequence);
 
                 if (noteManager.estUneNote(frequence)) {
-                    String noteT = "";
-                    int noteProche = noteManager.getNoteLaPlusProche(frequence);
-                    switch (noteProche) {
-                        case 1:
-                            noteT = "DO";
-                            break;
-                        case 2:
-                            noteT = "REB";
-                            break;
-                        case 3:
-                            noteT = "RE";
-                            break;
-                        case 4:
-                            noteT = "MIB";
-                            break;
-                        case 5:
-                            noteT = "MI";
-                            break;
-                        case 6:
-                            noteT = "FA";
-                            break;
-                        case 7:
-                            noteT = "SOLB";
-                            break;
-                        case 8:
-                            noteT = "SOL";
-                            break;
-                        case 9:
-                            noteT = "LAB";
-                            break;
-                        case 10:
-                            noteT = "LA";
-                            break;
-                        case 11:
-                            noteT = "SIB";
-                            break;
-                        case 12:
-                            noteT = "SI";
-                            break;
-                    }
-
-                    note.setText(noteT + "/" + noteManager.getDistanceNoteLaPlusProche(frequence));
+                    Log.e("AFFICHAGE NOTE", "coucou j'affiche");
+                    Note noteProche = noteManager.getNoteLaPlusProche(frequence);
+                    note.setText(noteProche.toString() + "/" + noteManager.getDistanceNoteLaPlusProche(noteProche.getFrequence()));
 
 
                 } else {
