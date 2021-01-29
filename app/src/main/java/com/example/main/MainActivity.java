@@ -11,8 +11,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.detectionnote.R;
-import com.example.detectionnote.ScaleFinder;
-import com.example.accordeur.Accordeur;
+import com.example.detectionnote.*;
+import com.example.accordeur.*;
+import com.example.metronome.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,15 +56,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*boutonMetronome.setOnClickListener(new View.OnClickListener() {
+        boutonMetronome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent openMetronome = new Intent(MainActivity.this, MetronomeActivity.class); //Declaration de l'activité pour ouvrir la page Metronome
+                Intent openMetronome = new Intent(MainActivity.this, Metronome.class); //Declaration de l'activité pour ouvrir la page Metronome
                 startActivity(openMetronome); //Ouverture de la page Metronome
 
             }
-        });*/
+        });
     }
 
 
