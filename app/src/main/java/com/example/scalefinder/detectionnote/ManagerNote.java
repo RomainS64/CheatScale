@@ -8,14 +8,14 @@
  * 2)Savoir la note la plus proche: public int getNoteLaPlusProche(double frequence);
  * 3)Savoir la distance (en Hz) de la note la plus proche: public double getDistanceNoteLaPlusProche(double frequence);
  */
-package com.example.detectionnote;
+package com.example.scalefinder.detectionnote;
 
 
 import android.util.Log;
 
+import com.example.scalefinder.Note;
+
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 
 import static java.lang.Math.abs;
@@ -52,7 +52,7 @@ public class ManagerNote {
     final double SI_FQ=61.74;
 
 
-    ArrayList<Note> notes;
+    ArrayList<com.example.scalefinder.detectionnote.Note> notes;
     private double margeErreur = 1.5;
 
     public ManagerNote(){definirNotes();}
@@ -62,7 +62,7 @@ public class ManagerNote {
     }
 
 
-    public Note getNoteLaPlusProche(double frequence){
+    public com.example.scalefinder.detectionnote.Note getNoteLaPlusProche(double frequence){
 
         int gammeTemperee=getGammeTemperee(frequence);
 
@@ -101,18 +101,18 @@ public class ManagerNote {
     //Lier toutes les notes avec les bonnes fréquence dans laMap margeErreur
     private void definirNotes(){
 
-        notes = new ArrayList<Note>();
-        notes.add(new Note(DO,DO_FQ));
-        notes.add(new Note(REB,REB_FQ));
-        notes.add(new Note(RE,RE_FQ));
-        notes.add(new Note(MIB,MIB_FQ));
-        notes.add(new Note(MI,MI_FQ));
-        notes.add(new Note(FA,FA_FQ));
-        notes.add(new Note(SOLB,SOLB_FQ));
-        notes.add(new Note(SOL,SOL_FQ));
-        notes.add(new Note(LAB,LAB_FQ));
-        notes.add(new Note(LA,LA_FQ));
-        notes.add(new Note(SIB,SIB_FQ));
+        notes = new ArrayList<com.example.scalefinder.detectionnote.Note>();
+        notes.add(new com.example.scalefinder.detectionnote.Note(DO,DO_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(REB,REB_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(RE,RE_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(MIB,MIB_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(MI,MI_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(FA,FA_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(SOLB,SOLB_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(SOL,SOL_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(LAB,LAB_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(LA,LA_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(SIB,SIB_FQ));
         notes.add(new Note(SI,SI_FQ));
 
     }

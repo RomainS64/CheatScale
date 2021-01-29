@@ -3,7 +3,7 @@
  *  @Author: shirkrin
  *  @OnlineSources: https://stackoverflow.com/questions/7649003/jtransforms-fft-in-android-from-pcm-data
  */
-package com.example.detectionnote;
+package com.example.scalefinder.detectionnote;
 
 import org.jtransforms.fft.DoubleFFT_1D;
 

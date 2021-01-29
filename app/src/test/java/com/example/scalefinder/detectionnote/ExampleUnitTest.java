@@ -1,4 +1,4 @@
-package com.example.detectionnote;
+package com.example.scalefinder.detectionnote;
 
 import org.junit.Test;
 
