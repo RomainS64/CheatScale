@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.detectionnote.R;
 import com.example.detectionnote.ScaleFinder;
+import com.example.accordeur.Accordeur;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,17 +45,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*boutonAccordeur.setOnClickListener(new View.OnClickListener() {
+        boutonAccordeur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent openAccordeur = new Intent(MainActivity.this, AccordeurActivity.class); //Declaration de l'activité pour ouvrir la page Accordeur
+                Intent openAccordeur = new Intent(MainActivity.this, Accordeur.class); //Declaration de l'activité pour ouvrir la page Accordeur
                 startActivity(openAccordeur); //Ouverture de la page Accordeur
 
             }
         });
 
-        boutonMetronome.setOnClickListener(new View.OnClickListener() {
+        /*boutonMetronome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
