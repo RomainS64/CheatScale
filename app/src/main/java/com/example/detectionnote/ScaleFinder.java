@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.R;
+
 public class ScaleFinder extends AppCompatActivity {
 
     Button start,stop,analyser;

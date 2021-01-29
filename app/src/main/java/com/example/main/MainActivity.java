@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.detectionnote.R;
+import com.example.R;
 import com.example.detectionnote.*;
 import com.example.accordeur.*;
 import com.example.metronome.*;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent openMetronome = new Intent(MainActivity.this, Metronome.class); //Declaration de l'activité pour ouvrir la page Metronome
+                Intent openMetronome = new Intent(MainActivity.this, PageMetronome.class); //Declaration de l'activité pour ouvrir la page Metronome
                 startActivity(openMetronome); //Ouverture de la page Metronome
 
             }
