@@ -1,4 +1,4 @@
-package com.example.scalefinder.detectionnote;
+package com.example;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.R;
 
 public class ScaleFinder extends AppCompatActivity {
 
@@ -89,7 +87,7 @@ public class ScaleFinder extends AppCompatActivity {
 
                 if (noteManager.estUneNote(frequence)) {
                     Log.e("AFFICHAGE NOTE", "coucou j'affiche");
-                    com.example.scalefinder.detectionnote.Note noteProche = noteManager.getNoteLaPlusProche(frequence);
+                    Note noteProche = noteManager.getNoteLaPlusProche(frequence);
                     note.setText(noteProche.toString() + "/" + noteManager.getDistanceNoteLaPlusProche(noteProche.getFrequence()));
 
 

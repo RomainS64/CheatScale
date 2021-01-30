@@ -11,10 +11,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.R;
-import com.example.scalefinder.*;
 import com.example.accordeur.*;
 import com.example.metronome.*;
-import com.example.scalefinder.detectionnote.ScaleFinder;
+import com.example.ScaleFinder;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.detectionnote.ScaleFinder">
+        <activity android:name="com.example.ScaleFinder">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
 

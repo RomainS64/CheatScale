@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
-import com.example.scalefinder.detectionnote.Note;
+import com.example.Note;
 public class ManagerNote {
 
     //différentes notes
@@ -51,7 +51,7 @@ public class ManagerNote {
     final double SI_FQ=61.74;
 
 
-    ArrayList<com.example.scalefinder.detectionnote.Note> notes;
+    ArrayList<Note> notes;
     private double margeErreur = 1.5;
 
     public ManagerNote(){definirNotes();}
@@ -61,7 +61,7 @@ public class ManagerNote {
     }
 
 
-    public com.example.scalefinder.detectionnote.Note getNoteLaPlusProche(double frequence){
+    public Note getNoteLaPlusProche(double frequence){
 
         int gammeTemperee=getGammeTemperee(frequence);
 
@@ -101,18 +101,18 @@ public class ManagerNote {
     private void definirNotes(){
 
         notes = new ArrayList<>();
-        notes.add(new com.example.scalefinder.detectionnote.Note(DO,DO_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(REB,REB_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(RE,RE_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(MIB,MIB_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(MI,MI_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(FA,FA_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(SOLB,SOLB_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(SOL,SOL_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(LAB,LAB_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(LA,LA_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(SIB,SIB_FQ));
-        notes.add(new com.example.scalefinder.detectionnote.Note(SI,SI_FQ));
+        notes.add(new Note(DO,DO_FQ));
+        notes.add(new Note(REB,REB_FQ));
+        notes.add(new Note(RE,RE_FQ));
+        notes.add(new Note(MIB,MIB_FQ));
+        notes.add(new Note(MI,MI_FQ));
+        notes.add(new Note(FA,FA_FQ));
+        notes.add(new Note(SOLB,SOLB_FQ));
+        notes.add(new Note(SOL,SOL_FQ));
+        notes.add(new Note(LAB,LAB_FQ));
+        notes.add(new Note(LA,LA_FQ));
+        notes.add(new Note(SIB,SIB_FQ));
+        notes.add(new Note(SI,SI_FQ));
 
     }
 
