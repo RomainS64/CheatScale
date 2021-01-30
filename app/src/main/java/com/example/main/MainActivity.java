@@ -11,10 +11,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.R;
-import com.example.scalefinder.*;
 import com.example.accordeur.*;
 import com.example.metronome.*;
-import com.example.scalefinder.detectionnote.ScaleFinder;
+import com.example.ScaleFinder;
+import com.example.identifiergamme.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent openScaleFinder = new Intent(MainActivity.this, ScaleFinder.class); //Declaration de l'activité pour ouvrir la page ScaleFinder
-                startActivity(openScaleFinder); //Ouverture de la page ScaleFinder
+                Intent openIdentifierGamme = new Intent(MainActivity.this, IdentifierGamme.class); //Declaration de l'activité pour ouvrir la page ScaleFinder
+                startActivity(openIdentifierGamme); //Ouverture de la page ScaleFinder
 
             }
         });

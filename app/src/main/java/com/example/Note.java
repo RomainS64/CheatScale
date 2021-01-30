@@ -1,10 +1,10 @@
-package com.example.scalefinder.detectionnote;
+package com.example;
 
 public class Note {
     int note;
     double frequence;
 
-    Note(int note, double frequence){
+    public Note(int note, double frequence){
         this.note = note;
         this.frequence = frequence;
     }
