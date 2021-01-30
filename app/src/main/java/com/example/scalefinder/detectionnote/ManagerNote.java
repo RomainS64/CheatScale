@@ -13,14 +13,13 @@ package com.example.scalefinder.detectionnote;
 
 import android.util.Log;
 
-import com.example.scalefinder.Note;
 
 import java.util.ArrayList;
 
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
-
+import com.example.scalefinder.detectionnote.Note;
 public class ManagerNote {
 
     //différentes notes
@@ -101,7 +100,7 @@ public class ManagerNote {
     //Lier toutes les notes avec les bonnes fréquence dans laMap margeErreur
     private void definirNotes(){
 
-        notes = new ArrayList<com.example.scalefinder.detectionnote.Note>();
+        notes = new ArrayList<>();
         notes.add(new com.example.scalefinder.detectionnote.Note(DO,DO_FQ));
         notes.add(new com.example.scalefinder.detectionnote.Note(REB,REB_FQ));
         notes.add(new com.example.scalefinder.detectionnote.Note(RE,RE_FQ));
@@ -113,7 +112,7 @@ public class ManagerNote {
         notes.add(new com.example.scalefinder.detectionnote.Note(LAB,LAB_FQ));
         notes.add(new com.example.scalefinder.detectionnote.Note(LA,LA_FQ));
         notes.add(new com.example.scalefinder.detectionnote.Note(SIB,SIB_FQ));
-        notes.add(new Note(SI,SI_FQ));
+        notes.add(new com.example.scalefinder.detectionnote.Note(SI,SI_FQ));
 
     }
 

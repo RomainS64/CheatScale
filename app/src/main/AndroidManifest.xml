@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.scalefinder.detectionnote">
+    package="com.example">
+
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <application
@@ -20,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.scalefinder.detectionnote.com.example.scalefinder.ScaleFinder">
+        <activity android:name="com.example.detectionnote.ScaleFinder">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
 
@@ -36,7 +37,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.metronome.Metronome">
+        <activity android:name="com.example.metronome.PageMetronome">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
 

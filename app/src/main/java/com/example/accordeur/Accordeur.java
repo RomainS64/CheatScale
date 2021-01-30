@@ -4,7 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.scalefinder.detectionnote.R;
+import com.example.R;
+
 
 public class Accordeur extends AppCompatActivity {
 
