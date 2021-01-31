@@ -18,14 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".identifiergamme.IdentifierGamme"></activity>
+
+        <activity android:name=".identifiergamme.IdentifierGamme">
+
+        </activity>
+
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ScaleFinder">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
@@ -33,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".accordeur.Accordeur">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
@@ -40,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".metronome.PageMetronome">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />

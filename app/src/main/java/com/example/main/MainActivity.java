@@ -8,12 +8,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.R;
 import com.example.accordeur.*;
 import com.example.metronome.*;
-import com.example.ScaleFinder;
 import com.example.identifiergamme.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,9 +26,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        //Demander la permition d'utiliser le microphone
+        //Demander la permission d'utiliser le microphone
         demanderPermission();
 
         boutonScaleFinder = (Button) findViewById(R.id.bouton_scaleFinder);
