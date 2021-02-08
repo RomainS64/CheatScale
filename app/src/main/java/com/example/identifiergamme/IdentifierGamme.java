@@ -37,6 +37,7 @@ public class IdentifierGamme extends AppCompatActivity {
         setContentView(R.layout.identifier_gamme);
 
         // Initialisation des éléments graphiques
+
         start_button_identifier_tonalite = (Button)findViewById(R.id.start_button_identifier_tonalite);
         stop_button_identifier_tonalite = (Button)findViewById(R.id.stop_button_identifier_tonalite);
         texte_ecoute = (TextView)findViewById(R.id.texte_ecoute);
