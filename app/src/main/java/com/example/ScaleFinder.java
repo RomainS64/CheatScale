@@ -24,7 +24,6 @@ public class ScaleFinder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scale_finder);
 
-        Log.e("MAIN", "ishish");
 
         //Initialisation des managers
         audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();

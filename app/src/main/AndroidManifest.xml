@@ -21,8 +21,8 @@
         android:screenOrientation="portrait">
 
         <activity android:name=".identifiergamme.IdentifierGamme">
-
         </activity>
+
 
         <activity android:name=".main.MainActivity">
             <intent-filter>
@@ -34,7 +34,6 @@
         <activity android:name=".ScaleFinder">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,7 +41,6 @@
         <activity android:name=".accordeur.Accordeur">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,10 +48,10 @@
         <activity android:name=".metronome.PageMetronome">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

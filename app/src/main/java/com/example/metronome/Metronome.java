@@ -3,7 +3,7 @@ package com.example.metronome;
 
 import android.media.MediaPlayer;
 import android.util.Log;
-
+import com.example.R;
 
 public class Metronome {
     public MediaPlayer tic;
@@ -15,10 +15,10 @@ public class Metronome {
 
 
 
-    Metronome(MediaPlayer tic){
+    Metronome(MediaPlayer tic, int bpmDepart){
 
         this.tic = tic;
-        bpm = 90;
+        bpm = bpmDepart;
         battement = new Thread(
                 new Runnable() {
                     public void run() {
@@ -31,7 +31,9 @@ public class Metronome {
     void run(){
         battement.start();
     }
-
+    void stop(){
+        finBattement=true;
+    }
 
     void battement(){
         while(!finBattement){
