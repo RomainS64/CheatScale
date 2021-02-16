@@ -117,7 +117,7 @@ public class IdentifierGamme extends AppCompatActivity {
 
     private void afficherNote() {
         final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
-        final double PROPORTION_DE_NOTES_REQUISE = 0.8;
+        final double PROPORTION_DE_NOTES_REQUISE = 0.9;
 
         Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
         double frequence;
