@@ -116,39 +116,46 @@ public class IdentifierGamme extends AppCompatActivity {
     }
 
     private void afficherNote() {
+        final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
+        final double PROPORTION_DE_NOTES_REQUISE = 0.8;
+
+        Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
         double frequence;
+        Note noteProche;
+        int nombreOccurence;
+
 
         while(!stopAff) {
             try {
                 frequence = audioManager.getFrequenceForte();
 
-                // txt.setText("" + frequence);
-
                 if (noteManager.estUneNote(frequence)) {
+                    noteProche = noteManager.getNoteLaPlusProche(frequence);
+                    nombreOccurence = 0;
 
-                    Note noteProche = noteManager.getNoteLaPlusProche(frequence);
+                    // décalage des dernières notes
+                    for (int i = dernieresNotes.length-1; i > 0; i--) {
+                        dernieresNotes[i] = dernieresNotes[i-1];
+                    }
+                    // Insertion de la nouvelle note
+                    dernieresNotes[0] = noteProche;
 
-                    // Disparition des indications de recherche
-                    texte_ecoute.setVisibility(View.INVISIBLE);
-                    progress_bar.setVisibility(View.INVISIBLE);
+                    // On compte le nombre d'occurence de la nouvelle note dans le tableau
+                    for (int j = 0; j <dernieresNotes.length; j++) {
+                        if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
+                            nombreOccurence++;
+                        }
+                    }
 
-
-                    // Affichage de la note
-                    texte_note.setVisibility(View.VISIBLE);
-                    img_check.setVisibility(View.VISIBLE);
-                    texte_note.setText(noteProche.toString());
-
-
-                } else {
-                    // Apparition des indications de recherche
-                    texte_ecoute.setVisibility(View.VISIBLE);
-                    progress_bar.setVisibility(View.VISIBLE);
-
-
-                    // Disparition de la note
-                    texte_note.setVisibility(View.INVISIBLE);
-                    img_check.setVisibility(View.INVISIBLE);
-                    texte_note.setText("");
+                    // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note
+                    if (nombreOccurence / dernieresNotes.length >= PROPORTION_DE_NOTES_REQUISE) {
+                        // Affichage de la note
+                        if (noteProche.toString().compareTo(texte_note.getText().toString()) != 0) {
+                            texte_note.setVisibility(View.INVISIBLE);
+                            texte_note.setText(noteProche.toString());
+                            texte_note.setVisibility(View.VISIBLE);
+                        }
+                    }
                 }
             }catch(Throwable t){
                 t.printStackTrace();
