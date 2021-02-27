@@ -165,7 +165,7 @@ public class IdentifierGamme extends AppCompatActivity {
                     }
 
                     // On actualise maintenant les gammes
-                    //afficherGammes(noteProche);
+                    afficherGammes(noteProche);
                 }
             }catch(Throwable t){
                 t.printStackTrace();
@@ -174,11 +174,11 @@ public class IdentifierGamme extends AppCompatActivity {
     }
 
     private void afficherGammes(Note note) {
-        if (texte_gamme1.getVisibility() == INVISIBLE) {
+        if (texte_gamme1.getVisibility() == INVISIBLE || button_gamme_1.getVisibility() == INVISIBLE) {
             texte_gamme1.setVisibility(VISIBLE);
             button_gamme_1.setVisibility(VISIBLE);
         }
         List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(note.toString());
-        button_gamme_1.setText(gammes.get(0).nom());
+        texte_gamme1.setText(gammes.get(0).nom());
     }
 }
