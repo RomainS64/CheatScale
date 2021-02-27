@@ -1,19 +1,18 @@
 package com.example.identifiergamme;
 
-import android.util.Pair;
-
-import com.example.Note;
 import com.example.scalefinder.detectionnote.ManagerNote;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ManagerGamme {
     List<Gamme> gammesTriees;
 
-    public ManagerGamme(final ManagerNote noteManager) {
-        this.gammesTriees.add(new Gamme("DO", new ArrayList<String>() {{ add("DO"); add("RE"); add("MI"); add("FA"); add("SOL"); add("LA"); add("SI");}}));
+    public ManagerGamme() {
+        List<String> gammeDo = new ArrayList<>();
+        gammeDo.add("DO");// gammeDo.add("RE"); gammeDo.add("MI"); gammeDo.add("FA"); gammeDo.add("SOL"); gammeDo.add("LA"); gammeDo.add("SI");
+
+        this.gammesTriees.add(new Gamme("DO", gammeDo));/*
         this.gammesTriees.add(new Gamme("REB", new ArrayList<String>() {{ add("REB"); add("MIB"); add("FA"); add("SOLB"); add("LAB"); add("SIB"); add("DO");}}));
         this.gammesTriees.add(new Gamme("RE", new ArrayList<String>() {{ add("RE"); add("MI"); add("SOLB"); add("SOL"); add("LA"); add("SI"); add("REB");}}));
         this.gammesTriees.add(new Gamme("MIB", new ArrayList<String>() {{ add("MIB"); add("FA"); add("SOL"); add("LAB"); add("SIB"); add("DO"); add("RE");}}));
@@ -25,6 +24,8 @@ public class ManagerGamme {
         this.gammesTriees.add(new Gamme("LA", new ArrayList<String>() {{ add("LA"); add("SI"); add("REB"); add("RE"); add("MI"); add("SOLB"); add("LAB");}}));
         this.gammesTriees.add(new Gamme("SIB", new ArrayList<String>() {{ add("SIB"); add("DO"); add("RE"); add("MIB"); add("FA"); add("SOL"); add("LA");}}));
         this.gammesTriees.add(new Gamme("SI", new ArrayList<String>() {{ add("SI"); add("REB"); add("MIB"); add("MI"); add("SOLB"); add("LAB"); add("SIB");}}));
+        */
+
     }
 
     public List<Gamme> ajouterOccurenceDeNote(String note) {
@@ -48,23 +49,5 @@ public class ManagerGamme {
         }
 
         return gammesTriees;
-    }
-
-
-    protected class Gamme {
-        private String nom;
-        private List<String> notesDeLaGamme;
-        private int scoreGamme;
-
-        public Gamme(String nom, List<String> notesDeLaGamme) {
-            this.nom = nom;
-            this.notesDeLaGamme = notesDeLaGamme;
-            this.scoreGamme = 0;
-        }
-
-        public String nom() { return this.nom; }
-        public void incrementerScore() { this.scoreGamme++; }
-        public int scoreGamme() { return this.scoreGamme; }
-        public boolean possedeLaNote(String note) { return this.notesDeLaGamme.contains(note); }
     }
 }

@@ -13,6 +13,8 @@ import com.example.Note;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class IdentifierGamme extends AppCompatActivity {
 
     Button start_button_identifier_tonalite, stop_button_identifier_tonalite, button_gamme_1;
@@ -73,7 +75,7 @@ public class IdentifierGamme extends AppCompatActivity {
                 //Initialisation des managers
                 audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
-                gammeManager = new ManagerGamme(noteManager);
+                gammeManager = new ManagerGamme();
 
                 // Initialisation du thread d'affichage de note
                 AfficherNote = new Thread(new Runnable() { public void run() { afficherNote(); } });
@@ -161,10 +163,22 @@ public class IdentifierGamme extends AppCompatActivity {
                             texte_note.setVisibility(View.VISIBLE);
                         }
                     }
+
+                    // On actualise maintenant les gammes
+                    //afficherGammes(noteProche);
                 }
             }catch(Throwable t){
                 t.printStackTrace();
             }
         }
+    }
+
+    private void afficherGammes(Note note) {
+        if (texte_gamme1.getVisibility() == INVISIBLE) {
+            texte_gamme1.setVisibility(VISIBLE);
+            button_gamme_1.setVisibility(VISIBLE);
+        }
+        List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(note.toString());
+        button_gamme_1.setText(gammes.get(0).nom());
     }
 }
