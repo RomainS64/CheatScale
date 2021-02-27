@@ -15,14 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class IdentifierGamme extends AppCompatActivity {
 
-    Button start_button_identifier_tonalite, stop_button_identifier_tonalite;
-    TextView texte_ecoute, texte_jouez, texte_tonalites_compatibles, texte_note;
+    Button start_button_identifier_tonalite, stop_button_identifier_tonalite, button_gamme_1;
+    TextView texte_ecoute, texte_jouez, texte_tonalites_compatibles, texte_note, texte_gamme1;
     ProgressBar progress_bar;
     View barre_horizontale_3, barre_horizontale_2;
     ImageView img_check;
 
     com.example.scalefinder.detectionnote.ManagerAudio audioManager;
     com.example.scalefinder.detectionnote.ManagerNote noteManager;
+
+    ManagerGamme gammeManager;
 
     Thread AfficherNote;
     boolean stopAff = false;
@@ -40,6 +42,7 @@ public class IdentifierGamme extends AppCompatActivity {
 
         start_button_identifier_tonalite = (Button)findViewById(R.id.start_button_identifier_tonalite);
         stop_button_identifier_tonalite = (Button)findViewById(R.id.stop_button_identifier_tonalite);
+        button_gamme_1 = (Button)findViewById(R.id.button_gamme1);
         texte_ecoute = (TextView)findViewById(R.id.texte_ecoute);
         texte_jouez = (TextView)findViewById(R.id.texte_jouez);
         texte_tonalites_compatibles = (TextView)findViewById(R.id.texte_tonalites_compatibles);
@@ -47,6 +50,7 @@ public class IdentifierGamme extends AppCompatActivity {
         barre_horizontale_3 = (View)findViewById(R.id.barre_horizontale_3);
         barre_horizontale_2 = (View)findViewById(R.id.barre_horizontale_2);
         texte_note = (TextView)findViewById(R.id.texte_note);
+        texte_gamme1 = (TextView)findViewById(R.id.texte_gamme1);
         img_check = (ImageView)findViewById(R.id.img_check);
 
 
@@ -69,6 +73,7 @@ public class IdentifierGamme extends AppCompatActivity {
                 //Initialisation des managers
                 audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
+                gammeManager = new ManagerGamme(noteManager);
 
                 // Initialisation du thread d'affichage de note
                 AfficherNote = new Thread(new Runnable() { public void run() { afficherNote(); } });
