@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManagerGamme {
-    List<Gamme> gammesTriees = new ArrayList<>();
+    private List<Gamme> gammesTriees = new ArrayList<>();
+    private int nombreDeNotesAjoutees;
 
     public ManagerGamme() {
         this.gammesTriees.add(new Gamme("DO", new ArrayList<String>() {{ add("DO"); add("RE"); add("MI"); add("FA"); add("SOL"); add("LA"); add("SI");}}));
@@ -21,6 +22,8 @@ public class ManagerGamme {
         this.gammesTriees.add(new Gamme("LA", new ArrayList<String>() {{ add("LA"); add("SI"); add("REB"); add("RE"); add("MI"); add("SOLB"); add("LAB");}}));
         this.gammesTriees.add(new Gamme("SIB", new ArrayList<String>() {{ add("SIB"); add("DO"); add("RE"); add("MIB"); add("FA"); add("SOL"); add("LA");}}));
         this.gammesTriees.add(new Gamme("SI", new ArrayList<String>() {{ add("SI"); add("REB"); add("MIB"); add("MI"); add("SOLB"); add("LAB"); add("SIB");}}));
+
+        nombreDeNotesAjoutees = 0;
     }
 
     public List<Gamme> ajouterOccurenceDeNote(String note) {
@@ -29,6 +32,8 @@ public class ManagerGamme {
                 gammesTriees.get(i).incrementerScore();
             }
         }
+
+        nombreDeNotesAjoutees++;
 
         boolean permutationAEuLieu = true;
         while (permutationAEuLieu) {
@@ -45,4 +50,6 @@ public class ManagerGamme {
 
         return gammesTriees;
     }
+
+    public int nombreDeNotesAjoutees() { return nombreDeNotesAjoutees; }
 }

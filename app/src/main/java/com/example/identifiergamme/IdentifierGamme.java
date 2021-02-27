@@ -17,19 +17,38 @@ import java.util.List;
 
 public class IdentifierGamme extends AppCompatActivity {
 
-    Button start_button_identifier_tonalite, stop_button_identifier_tonalite, button_gamme_1;
-    TextView texte_ecoute, texte_jouez, texte_tonalites_compatibles, texte_note, texte_gamme1;
-    ProgressBar progress_bar;
-    View barre_horizontale_3, barre_horizontale_2;
-    ImageView img_check;
+    // ---------- Eléments graphiques ---------- \\
+    // Boutons
+    private Button boutonStart;
+    private Button boutonStop;
+    private Button boutonGamme1;
 
+    // Textes
+    private TextView texteEcouteEnCours;
+    private TextView texteIndiquationJouez;
+    private TextView texteTonalitesCompatibles;
+    private TextView texteNoteCourante;
+    private TextView texteCompatibiliteGamme1;
+
+    // Autre
+    private ProgressBar progress_bar;
+    private View barre_horizontale_3;
+    private View barre_horizontale_2;
+    private ImageView img_check;
+    // ------------------------------------------ \\
+
+
+    // ---------- Managers ---------- \\
     com.example.scalefinder.detectionnote.ManagerAudio audioManager;
     com.example.scalefinder.detectionnote.ManagerNote noteManager;
-
     ManagerGamme gammeManager;
+    // ------------------------------ \\
 
-    Thread AfficherNote;
+
+    // ---------- Threads & Gestion des Threads ---------- \\
+    Thread GererNotesEtGammes;
     boolean stopAff = false;
+    // --------------------------------------------------- \\
 
 
     @Override
@@ -40,89 +59,109 @@ public class IdentifierGamme extends AppCompatActivity {
                 SYSTEM_UI_FLAG_LAYOUT_STABLE | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.identifier_gamme);
 
-        // Initialisation des éléments graphiques
+        // ---------- Initialisation des éléments graphiques ---------- \\
+        // Boutons
+        boutonStart = (Button)findViewById(R.id.start_button_identifier_tonalite);
+        boutonStop = (Button)findViewById(R.id.stop_button_identifier_tonalite);
+        boutonGamme1 = (Button)findViewById(R.id.button_gamme1);
 
-        start_button_identifier_tonalite = (Button)findViewById(R.id.start_button_identifier_tonalite);
-        stop_button_identifier_tonalite = (Button)findViewById(R.id.stop_button_identifier_tonalite);
-        button_gamme_1 = (Button)findViewById(R.id.button_gamme1);
-        texte_ecoute = (TextView)findViewById(R.id.texte_ecoute);
-        texte_jouez = (TextView)findViewById(R.id.texte_jouez);
-        texte_tonalites_compatibles = (TextView)findViewById(R.id.texte_tonalites_compatibles);
+        // Textes
+        texteEcouteEnCours = (TextView)findViewById(R.id.texte_ecoute);
+        texteIndiquationJouez = (TextView)findViewById(R.id.texte_jouez);
+        texteTonalitesCompatibles = (TextView)findViewById(R.id.texte_tonalites_compatibles);
+        texteNoteCourante = (TextView)findViewById(R.id.texte_note);
+        texteCompatibiliteGamme1 = (TextView)findViewById(R.id.texte_gamme1);
+
+        // Autre
         progress_bar = (ProgressBar)findViewById(R.id.progress_bar);
-        barre_horizontale_3 = (View)findViewById(R.id.barre_horizontale_3);
         barre_horizontale_2 = (View)findViewById(R.id.barre_horizontale_2);
-        texte_note = (TextView)findViewById(R.id.texte_note);
-        texte_gamme1 = (TextView)findViewById(R.id.texte_gamme1);
+        barre_horizontale_3 = (View)findViewById(R.id.barre_horizontale_3);
         img_check = (ImageView)findViewById(R.id.img_check);
+        // -------------------------------------------------------------- \\
 
 
         // Déclenchement de la fonctionnalité
-        start_button_identifier_tonalite.setOnClickListener(new View.OnClickListener() {
+        boutonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // ---------- Mise à jour des éléments graphiques ---------- \\
                 // Apparition des éléments à ajouter
-                texte_ecoute.setVisibility(View.VISIBLE);
-                texte_jouez.setVisibility(View.VISIBLE);
+                texteEcouteEnCours.setVisibility(View.VISIBLE);
+                texteIndiquationJouez.setVisibility(View.VISIBLE);
                 progress_bar.setVisibility(View.VISIBLE);
                 barre_horizontale_3.setVisibility(View.VISIBLE);
-                stop_button_identifier_tonalite.setVisibility(View.VISIBLE);
-                texte_tonalites_compatibles.setVisibility(View.VISIBLE);
+                boutonStop.setVisibility(View.VISIBLE);
+                texteTonalitesCompatibles.setVisibility(View.VISIBLE);
 
                 // Retrait des éléments inutiles
-                start_button_identifier_tonalite.setVisibility(View.INVISIBLE);
+                boutonStart.setVisibility(View.INVISIBLE);
                 barre_horizontale_2.setVisibility(View.INVISIBLE);
+                // --------------------------------------------------------- \\
 
+
+                // ---------- Initialisation des éléments requis ---------- \\
                 //Initialisation des managers
                 audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
                 gammeManager = new ManagerGamme();
 
                 // Initialisation du thread d'affichage de note
-                AfficherNote = new Thread(new Runnable() { public void run() { afficherNote(); } });
+                GererNotesEtGammes = new Thread(new Runnable() { public void run() { gererNotesCourantes(); } });
+                // -------------------------------------------------------- \\
 
-                // On lance l'écoute
+
+                // ---------- Lancement du Thread et du manager audio ---------- \\
                 audioManager.run();
                 try {
                     stopAff = false;
-                    AfficherNote.start();
+                    GererNotesEtGammes.start();
                 } catch (Throwable t) {
                     // Message d'erreur à dev
                 }
+                // -------------------------------------------------------------- \\
             }
         });
 
 
         // Arrêt de la fonctionnalité
-        stop_button_identifier_tonalite.setOnClickListener(new View.OnClickListener() {
+        boutonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Arrêt du thread
+
+                // ---------- Arrêt du thread ---------- \\
                 stopAff = true;
                 try {
-                    AfficherNote.join();
+                    GererNotesEtGammes.join();
                 }
                 catch(InterruptedException e) {
                     // Message d'erreur à dev
                 }
+                // -------------------------------------- \\
 
+
+                // ---------- Mise à jour des éléments graphiques ---------- \\
                 // Retrait des éléments inutiles
-                texte_ecoute.setVisibility(View.INVISIBLE);
-                texte_jouez.setVisibility(View.INVISIBLE);
+                texteEcouteEnCours.setVisibility(View.INVISIBLE);
+                texteIndiquationJouez.setVisibility(View.INVISIBLE);
                 progress_bar.setVisibility(View.INVISIBLE);
                 barre_horizontale_3.setVisibility(View.INVISIBLE);
-                stop_button_identifier_tonalite.setVisibility(View.INVISIBLE);
-                texte_tonalites_compatibles.setVisibility(View.INVISIBLE);
+                boutonStop.setVisibility(View.INVISIBLE);
+                texteTonalitesCompatibles.setVisibility(View.INVISIBLE);
                 img_check.setVisibility(View.INVISIBLE);
-                texte_note.setVisibility(View.INVISIBLE);
+                texteNoteCourante.setVisibility(View.INVISIBLE);
+                boutonGamme1.setVisibility(INVISIBLE);
+                texteCompatibiliteGamme1.setVisibility(INVISIBLE);
 
                 // Réapparition des éléments utiles
-                start_button_identifier_tonalite.setVisibility(View.VISIBLE);
+                boutonStart.setVisibility(View.VISIBLE);
                 barre_horizontale_2.setVisibility(View.VISIBLE);
+                // ---------------------------------------------------------- \\
             }
         });
     }
 
-    private void afficherNote() {
+    private void gererNotesCourantes() {
         final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
         final double PROPORTION_DE_NOTES_REQUISE = 0.9;
 
@@ -154,31 +193,42 @@ public class IdentifierGamme extends AppCompatActivity {
                         }
                     }
 
-                    // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note
+                    // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note et on actualise les gammes
                     if (nombreOccurence / dernieresNotes.length >= PROPORTION_DE_NOTES_REQUISE) {
-                        // Affichage de la note
-                        if (noteProche.toString().compareTo(texte_note.getText().toString()) != 0) {
-                            texte_note.setVisibility(View.INVISIBLE);
-                            texte_note.setText(noteProche.toString());
-                            texte_note.setVisibility(View.VISIBLE);
+
+                        // Affichage de la note si elle n'est pas déjà affichée
+                        if (noteProche.toString().compareTo(texteNoteCourante.getText().toString()) != 0) {
+                            texteNoteCourante.setVisibility(View.INVISIBLE);
+                            texteNoteCourante.setText(noteProche.toString());
+                            texteNoteCourante.setVisibility(View.VISIBLE);
                         }
+                        gererGammes(noteProche);
                     }
 
-                    // On actualise maintenant les gammes
-                    afficherGammes(noteProche);
                 }
-            }catch(Throwable t){
+            } catch(Throwable t) {
                 t.printStackTrace();
             }
         }
     }
 
-    private void afficherGammes(Note note) {
-        if (texte_gamme1.getVisibility() == INVISIBLE || button_gamme_1.getVisibility() == INVISIBLE) {
-            texte_gamme1.setVisibility(VISIBLE);
-            button_gamme_1.setVisibility(VISIBLE);
-        }
+    private void gererGammes(Note note) {
+        if (texteCompatibiliteGamme1.getVisibility() == INVISIBLE) { texteCompatibiliteGamme1.setVisibility(VISIBLE); }
+        if (boutonGamme1.getVisibility() == INVISIBLE) { boutonGamme1.setVisibility(VISIBLE); }
+
         List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(note.toString());
-        texte_gamme1.setText(gammes.get(0).nom());
+        int pourcentageDeCompatibiliteDeLaGamme1 = (gammes.get(0).scoreGamme() / gammeManager.nombreDeNotesAjoutees()) * 100;
+
+        if (gammes.get(0).nom().compareTo(boutonGamme1.getText().toString()) != 0) {
+            boutonGamme1.setVisibility(View.INVISIBLE);
+            boutonGamme1.setText(gammes.get(0).nom());
+            boutonGamme1.setVisibility(View.VISIBLE);
+        }
+
+        if (Integer.toString(pourcentageDeCompatibiliteDeLaGamme1).compareTo(texteCompatibiliteGamme1.getText().toString()) != 0) {
+            texteCompatibiliteGamme1.setVisibility(View.INVISIBLE);
+            texteCompatibiliteGamme1.setText(Integer.toString(pourcentageDeCompatibiliteDeLaGamme1));
+            texteCompatibiliteGamme1.setVisibility(View.VISIBLE);
+        }
     }
 }
