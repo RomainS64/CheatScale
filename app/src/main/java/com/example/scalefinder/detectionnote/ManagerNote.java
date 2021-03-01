@@ -86,14 +86,14 @@ public class ManagerNote {
         return (frequence - notes.get(note-1).getFrequence()*pow(2,gammeTemperee));
     }
     public boolean estUneNote(double frequence){
-        Log.e("estUneNotes", "freq:"+frequence);
-        Log.e("estUneNotes",getDistanceNoteLaPlusProche(frequence)+">"+margeErreur*getGammeTemperee(frequence));
+        //Log.e("estUneNotes", "freq:"+frequence);
+        //Log.e("estUneNotes",getDistanceNoteLaPlusProche(frequence)+">"+margeErreur*getGammeTemperee(frequence));
         if (abs(getDistanceNoteLaPlusProche(frequence))>margeErreur*getGammeTemperee(frequence)){
 
             return false;
         }
 
-        Log.e("estUneNotes", "C UNE NOTEUH");
+        //Log.e("estUneNotes", "C UNE NOTEUH");
         return true;
     }
 

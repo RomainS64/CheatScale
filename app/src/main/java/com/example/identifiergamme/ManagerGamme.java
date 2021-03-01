@@ -1,5 +1,7 @@
 package com.example.identifiergamme;
 
+import android.util.Log;
+
 import com.example.scalefinder.detectionnote.ManagerNote;
 
 import java.util.ArrayList;
@@ -39,12 +41,18 @@ public class ManagerGamme {
         while (permutationAEuLieu) {
             permutationAEuLieu = false;
             for (int i = 0; i < gammesTriees.size(); i++) {
-                if (gammesTriees.get(i).scoreGamme() < gammesTriees.get(i+1).scoreGamme()) {
-                    Gamme temp = gammesTriees.get(i);
-                    gammesTriees.set(i, gammesTriees.get(i+1));
-                    gammesTriees.set(i+1, temp);
-                    permutationAEuLieu = true;
+                try{
+                    if (gammesTriees.get(i).scoreGamme() < gammesTriees.get(i+1).scoreGamme() && i < gammesTriees.size()-1) {
+                        Gamme temp = gammesTriees.get(i);
+                        gammesTriees.set(i, gammesTriees.get(i+1));
+                        gammesTriees.set(i+1, temp);
+                        permutationAEuLieu = true;
+                    }
                 }
+                catch(Throwable t){
+                    Log.e("Dectective CONAN" , "j'ai trouvé le meurtrié");
+                }
+
             }
         }
 

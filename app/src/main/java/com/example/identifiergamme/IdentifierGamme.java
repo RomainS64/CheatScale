@@ -3,6 +3,7 @@ package com.example.identifiergamme;
 import android.os.Bundle;
 import static android.view.View.*;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -93,6 +94,8 @@ public class IdentifierGamme extends AppCompatActivity {
                 barre_horizontale_3.setVisibility(View.VISIBLE);
                 boutonStop.setVisibility(View.VISIBLE);
                 texteTonalitesCompatibles.setVisibility(View.VISIBLE);
+                boutonGamme1.setVisibility(View.VISIBLE);
+                texteCompatibiliteGamme1.setVisibility(VISIBLE);
 
                 // Retrait des éléments inutiles
                 boutonStart.setVisibility(View.INVISIBLE);
@@ -188,8 +191,13 @@ public class IdentifierGamme extends AppCompatActivity {
 
                     // On compte le nombre d'occurence de la nouvelle note dans le tableau
                     for (int j = 0; j <dernieresNotes.length; j++) {
-                        if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
-                            nombreOccurence++;
+                        try {
+                            if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
+                                nombreOccurence++;
+                            }
+                        }
+                        catch(Throwable t){
+                            Log.e("Dectective CONAN" , "tiens,tiens,tiens");
                         }
                     }
 
@@ -198,9 +206,8 @@ public class IdentifierGamme extends AppCompatActivity {
 
                         // Affichage de la note si elle n'est pas déjà affichée
                         if (noteProche.toString().compareTo(texteNoteCourante.getText().toString()) != 0) {
-                            texteNoteCourante.setVisibility(View.INVISIBLE);
-                            texteNoteCourante.setText(noteProche.toString());
-                            texteNoteCourante.setVisibility(View.VISIBLE);
+                            //RunOnUIThread
+                            afficherNote(noteProche);
                         }
                         gererGammes(noteProche);
                     }
@@ -213,22 +220,78 @@ public class IdentifierGamme extends AppCompatActivity {
     }
 
     private void gererGammes(Note note) {
-        if (texteCompatibiliteGamme1.getVisibility() == INVISIBLE) { texteCompatibiliteGamme1.setVisibility(VISIBLE); }
-        if (boutonGamme1.getVisibility() == INVISIBLE) { boutonGamme1.setVisibility(VISIBLE); }
+        //RunOnUIThread
+        //if (texteCompatibiliteGamme1.getVisibility() == INVISIBLE) { texteCompatibiliteGamme1.setVisibility(VISIBLE); }
+        //if (boutonGamme1.getVisibility() == INVISIBLE) { boutonGamme1.setVisibility(VISIBLE); }
 
         List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(note.toString());
         int pourcentageDeCompatibiliteDeLaGamme1 = (gammes.get(0).scoreGamme() / gammeManager.nombreDeNotesAjoutees()) * 100;
 
         if (gammes.get(0).nom().compareTo(boutonGamme1.getText().toString()) != 0) {
-            boutonGamme1.setVisibility(View.INVISIBLE);
-            boutonGamme1.setText(gammes.get(0).nom());
-            boutonGamme1.setVisibility(View.VISIBLE);
+            //RunOnUIThread
+           afficherNomGamme(gammes);
         }
 
         if (Integer.toString(pourcentageDeCompatibiliteDeLaGamme1).compareTo(texteCompatibiliteGamme1.getText().toString()) != 0) {
-            texteCompatibiliteGamme1.setVisibility(View.INVISIBLE);
-            texteCompatibiliteGamme1.setText(Integer.toString(pourcentageDeCompatibiliteDeLaGamme1));
-            texteCompatibiliteGamme1.setVisibility(View.VISIBLE);
+            //RunOnUIThread
+            afficherPourcentage(pourcentageDeCompatibiliteDeLaGamme1);
         }
     }
+
+    Note noteAAfficher;
+    private void afficherNote(Note note){
+        try {
+            noteAAfficher = note;
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    texteNoteCourante.setVisibility(View.INVISIBLE);
+                    texteNoteCourante.setText(noteAAfficher.toString());
+                    texteNoteCourante.setVisibility(View.VISIBLE);
+                }
+            });
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    List<Gamme> gammesAAfficher;
+    private void afficherNomGamme(List<Gamme> gammes){
+        try {
+            gammesAAfficher = gammes;
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    boutonGamme1.setText(gammesAAfficher.get(0).nom());
+                    boutonGamme1.setVisibility(View.VISIBLE);
+                }
+            });
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    int pourcentageAAfficher;
+    private void afficherPourcentage(int pourcentage){
+        pourcentageAAfficher = pourcentage;
+        try {
+
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    texteCompatibiliteGamme1.setText(Integer.toString(pourcentageAAfficher)+"%");
+                    texteCompatibiliteGamme1.setVisibility(View.VISIBLE);
+                }
+            });
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
 }
