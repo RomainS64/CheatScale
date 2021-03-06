@@ -96,8 +96,7 @@ public class ManagerNote {
                             if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
                                 nombreOccurence++;
                             }
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                     }
 
                     // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note et on la renvoie

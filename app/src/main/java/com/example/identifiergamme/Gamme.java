@@ -17,5 +17,13 @@ public class Gamme {
     public String nom() { return this.nom; }
     public void incrementerScore() { this.scoreGamme++; }
     public int scoreGamme() { return this.scoreGamme; }
-    public boolean possedeLaNote(String note) { return this.notesDeLaGamme.contains(note); }
+
+    public boolean possedeLaNote(String note) {
+        for (int i = 0; i < notesDeLaGamme.size(); i++) {
+            if (note.compareTo(notesDeLaGamme.get(i)) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

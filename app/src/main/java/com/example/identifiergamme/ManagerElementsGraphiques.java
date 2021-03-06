@@ -17,6 +17,11 @@ public class ManagerElementsGraphiques {
     protected Button boutonStart;
     protected Button boutonStop;
     protected Button boutonGamme1;
+    protected Button boutonGamme2;
+    protected Button boutonGamme3;
+    protected Button boutonGamme4;
+    protected Button boutonGamme5;
+    protected Button boutonGamme6;
 
     // Textes
     protected TextView texteEcouteEnCours;
@@ -24,6 +29,11 @@ public class ManagerElementsGraphiques {
     protected TextView texteTonalitesCompatibles;
     protected TextView texteNoteCourante;
     protected TextView texteCompatibiliteGamme1;
+    protected TextView texteCompatibiliteGamme2;
+    protected TextView texteCompatibiliteGamme3;
+    protected TextView texteCompatibiliteGamme4;
+    protected TextView texteCompatibiliteGamme5;
+    protected TextView texteCompatibiliteGamme6;
 
     // Autre
     protected ProgressBar progress_bar;
@@ -44,6 +54,11 @@ public class ManagerElementsGraphiques {
         boutonStart = (Button)page.findViewById(R.id.start_button_identifier_tonalite);
         boutonStop = (Button)page.findViewById(R.id.stop_button_identifier_tonalite);
         boutonGamme1 = (Button)page.findViewById(R.id.button_gamme1);
+        boutonGamme2 = (Button)page.findViewById(R.id.button_gamme2);
+        boutonGamme3 = (Button)page.findViewById(R.id.button_gamme3);
+        boutonGamme4 = (Button)page.findViewById(R.id.button_gamme4);
+        boutonGamme5 = (Button)page.findViewById(R.id.button_gamme5);
+        boutonGamme6 = (Button)page.findViewById(R.id.button_gamme6);
 
         // Textes
         texteEcouteEnCours = (TextView)page.findViewById(R.id.texte_ecoute);
@@ -51,6 +66,11 @@ public class ManagerElementsGraphiques {
         texteTonalitesCompatibles = (TextView)page.findViewById(R.id.texte_tonalites_compatibles);
         texteNoteCourante = (TextView)page.findViewById(R.id.texte_note);
         texteCompatibiliteGamme1 = (TextView)page.findViewById(R.id.texte_gamme1);
+        texteCompatibiliteGamme2 = (TextView)page.findViewById(R.id.texte_gamme2);
+        texteCompatibiliteGamme3 = (TextView)page.findViewById(R.id.texte_gamme3);
+        texteCompatibiliteGamme4 = (TextView)page.findViewById(R.id.texte_gamme4);
+        texteCompatibiliteGamme5 = (TextView)page.findViewById(R.id.texte_gamme5);
+        texteCompatibiliteGamme6 = (TextView)page.findViewById(R.id.texte_gamme6);
 
         // Autre
         progress_bar = (ProgressBar)page.findViewById(R.id.progress_bar);
@@ -70,7 +90,17 @@ public class ManagerElementsGraphiques {
         boutonStop.setVisibility(View.VISIBLE);
         texteTonalitesCompatibles.setVisibility(View.VISIBLE);
         boutonGamme1.setVisibility(View.VISIBLE);
+        boutonGamme2.setVisibility(View.VISIBLE);
+        boutonGamme3.setVisibility(View.VISIBLE);
+        boutonGamme4.setVisibility(View.VISIBLE);
+        boutonGamme5.setVisibility(View.VISIBLE);
+        boutonGamme6.setVisibility(View.VISIBLE);
         texteCompatibiliteGamme1.setVisibility(VISIBLE);
+        texteCompatibiliteGamme2.setVisibility(VISIBLE);
+        texteCompatibiliteGamme3.setVisibility(VISIBLE);
+        texteCompatibiliteGamme4.setVisibility(VISIBLE);
+        texteCompatibiliteGamme5.setVisibility(VISIBLE);
+        texteCompatibiliteGamme6.setVisibility(VISIBLE);
         texteNoteCourante.setVisibility(View.VISIBLE);
 
         // Retrait des éléments inutiles
@@ -91,7 +121,17 @@ public class ManagerElementsGraphiques {
         img_check.setVisibility(View.INVISIBLE);
         texteNoteCourante.setVisibility(View.INVISIBLE);
         boutonGamme1.setVisibility(View.INVISIBLE);
+        boutonGamme2.setVisibility(View.INVISIBLE);
+        boutonGamme3.setVisibility(View.INVISIBLE);
+        boutonGamme4.setVisibility(View.INVISIBLE);
+        boutonGamme5.setVisibility(View.INVISIBLE);
+        boutonGamme6.setVisibility(View.INVISIBLE);
         texteCompatibiliteGamme1.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme2.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme3.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme4.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme5.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme6.setVisibility(View.INVISIBLE);
 
         // Réapparition des éléments utiles
         boutonStart.setVisibility(View.VISIBLE);

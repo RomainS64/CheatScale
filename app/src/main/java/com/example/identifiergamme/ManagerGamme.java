@@ -29,13 +29,17 @@ public class ManagerGamme {
     }
 
     public List<Gamme> ajouterOccurenceDeNote(String note) {
+        Log.e("Ajout des occurences", "Pour chaque gamme, on a tant d'occurences de notes :");
         for (int i = 0; i < gammesTriees.size(); i++) {
             if (gammesTriees.get(i).possedeLaNote(note)) {
                 gammesTriees.get(i).incrementerScore();
+                Log.e(gammesTriees.get(i).nom(), Integer.toString(gammesTriees.get(i).scoreGamme()));
             }
         }
+        Log.e("Fin d'ajout", "Et voilà !");
 
         nombreDeNotesAjoutees++;
+        Log.e("On a ajouté en tout :",nombreDeNotesAjoutees + " notes !");
 
         boolean permutationAEuLieu = true;
         while (permutationAEuLieu) {
@@ -49,13 +53,13 @@ public class ManagerGamme {
                         permutationAEuLieu = true;
                     }
                 }
-                catch(Throwable t){
-                    Log.e("Dectective CONAN" , "j'ai trouvé le meurtrié");
-                }
-
+                catch(Throwable t) {}
             }
         }
-
+        Log.e("Gammes triées"," : ");
+        for (int i = 0; i < gammesTriees.size(); i++) {
+            Log.e(gammesTriees.get(i).nom(), Integer.toString(gammesTriees.get(i).scoreGamme()));
+        }
         return gammesTriees;
     }
 

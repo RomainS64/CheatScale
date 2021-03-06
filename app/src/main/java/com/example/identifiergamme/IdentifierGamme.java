@@ -18,14 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class IdentifierGamme extends AppCompatActivity {
-    // ---------- Managers ---------- \\
-    com.example.scalefinder.detectionnote.ManagerNote noteManager;
-    ManagerGamme gammeManager;
-    ManagerElementsGraphiques graph;
-
-    // ---------- Threads & Gestion des Threads ---------- \\
-    Thread GererNotesEtGammes;
-    boolean arreterFonctionnalite = false;
+    private com.example.scalefinder.detectionnote.ManagerNote noteManager;
+    private ManagerGamme gammeManager;
+    private ManagerElementsGraphiques graph;
+    private Thread GererNotesEtGammes;
+    private boolean arreterFonctionnalite = false;
+    private Note derniereNoteTrouvee = new Note();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +41,11 @@ public class IdentifierGamme extends AppCompatActivity {
         graph.boutonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ---------- Initialisation des éléments requis ---------- \\
-                // Apparition des éléments graphiques
                 graph.lancerEcoute();
-
-                //Initialisation des managers
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
                 gammeManager = new ManagerGamme();
-
-                // Initialisation du thread d'affichage de note
-                GererNotesEtGammes = new Thread(new Runnable() { public void run() { identifierGammes(); } });
-
-                // ---------- Lancement du Thread et du manager audio ---------- \\
                 arreterFonctionnalite = false;
+                GererNotesEtGammes = new Thread(new Runnable() { public void run() { identifierGammes(); } });
                 try { GererNotesEtGammes.start(); }
                 catch (Throwable t){}
             }
@@ -65,13 +55,10 @@ public class IdentifierGamme extends AppCompatActivity {
         graph.boutonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ---------- Arrêt du thread ---------- \\
                 arreterFonctionnalite = true;
                 noteManager.arreterRecherche();
                 try { GererNotesEtGammes.join(); }
                 catch(InterruptedException e){}
-
-                // Suppression des éléments graphiques
                 graph.arreterEcoute();
             }
         });
@@ -80,15 +67,32 @@ public class IdentifierGamme extends AppCompatActivity {
     private void identifierGammes() {
         while(!arreterFonctionnalite) {
             Note noteTrouvee = noteManager.getNote();
-            graph.afficherSurUIThread(graph.texteNoteCourante, noteTrouvee.toString());
-            actualiserGammes(noteTrouvee);
-        }
-    }
 
-    private void actualiserGammes(Note note) {
-        List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(note.toString());
-        int pourcentageDeCompatibiliteDeLaGamme1 = (gammes.get(0).scoreGamme() / gammeManager.nombreDeNotesAjoutees()) * 100;
-        graph.afficherSurUIThread(graph.boutonGamme1, gammes.get(0).nom());
-        graph.afficherSurUIThread(graph.texteCompatibiliteGamme1, pourcentageDeCompatibiliteDeLaGamme1 + "%");
+            if (noteTrouvee.toString().compareTo(derniereNoteTrouvee.toString()) != 0) {
+                derniereNoteTrouvee = noteTrouvee;
+                graph.afficherSurUIThread(graph.texteNoteCourante, noteTrouvee.toString());
+
+                List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(noteTrouvee.toString());
+                double pourcentageDeCompatibiliteDeLaGamme1 = Math.ceil(((double)gammes.get(0).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme2 = Math.ceil(((double)gammes.get(1).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme3 = Math.ceil(((double)gammes.get(2).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme4 = Math.ceil(((double)gammes.get(3).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme5 = Math.ceil(((double)gammes.get(4).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme6 = Math.ceil(((double)gammes.get(5).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+
+                graph.afficherSurUIThread(graph.boutonGamme1, gammes.get(0).nom());
+                graph.afficherSurUIThread(graph.boutonGamme2, gammes.get(1).nom());
+                graph.afficherSurUIThread(graph.boutonGamme3, gammes.get(2).nom());
+                graph.afficherSurUIThread(graph.boutonGamme4, gammes.get(3).nom());
+                graph.afficherSurUIThread(graph.boutonGamme5, gammes.get(4).nom());
+                graph.afficherSurUIThread(graph.boutonGamme6, gammes.get(5).nom());
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme1, pourcentageDeCompatibiliteDeLaGamme1 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme2, pourcentageDeCompatibiliteDeLaGamme2 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme3, pourcentageDeCompatibiliteDeLaGamme3 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme4, pourcentageDeCompatibiliteDeLaGamme4 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme5, pourcentageDeCompatibiliteDeLaGamme5 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme6, pourcentageDeCompatibiliteDeLaGamme6 + "%");
+            }
+        }
     }
 }
