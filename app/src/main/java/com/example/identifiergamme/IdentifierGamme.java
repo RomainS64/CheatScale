@@ -3,6 +3,7 @@ package com.example.identifiergamme;
 import android.os.Bundle;
 import static android.view.View.*;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,23 +11,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.R;
 import com.example.Note;
+import com.example.scalefinder.detectionnote.ManagerNote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class IdentifierGamme extends AppCompatActivity {
-
-    Button start_button_identifier_tonalite, stop_button_identifier_tonalite;
-    TextView texte_ecoute, texte_jouez, texte_tonalites_compatibles, texte_note;
-    ProgressBar progress_bar;
-    View barre_horizontale_3, barre_horizontale_2;
-    ImageView img_check;
-
-    com.example.scalefinder.detectionnote.ManagerAudio audioManager;
-    com.example.scalefinder.detectionnote.ManagerNote noteManager;
-
-    Thread AfficherNote;
-    boolean stopAff = false;
-
+    private com.example.scalefinder.detectionnote.ManagerNote noteManager;
+    private ManagerGamme gammeManager;
+    private ManagerElementsGraphiques graph;
+    private Thread GererNotesEtGammes;
+    private boolean arreterFonctionnalite = false;
+    private Note derniereNoteTrouvee = new Note();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,128 +34,64 @@ public class IdentifierGamme extends AppCompatActivity {
         setContentView(R.layout.identifier_gamme);
 
         // Initialisation des éléments graphiques
-
-        start_button_identifier_tonalite = (Button)findViewById(R.id.start_button_identifier_tonalite);
-        stop_button_identifier_tonalite = (Button)findViewById(R.id.stop_button_identifier_tonalite);
-        texte_ecoute = (TextView)findViewById(R.id.texte_ecoute);
-        texte_jouez = (TextView)findViewById(R.id.texte_jouez);
-        texte_tonalites_compatibles = (TextView)findViewById(R.id.texte_tonalites_compatibles);
-        progress_bar = (ProgressBar)findViewById(R.id.progress_bar);
-        barre_horizontale_3 = (View)findViewById(R.id.barre_horizontale_3);
-        barre_horizontale_2 = (View)findViewById(R.id.barre_horizontale_2);
-        texte_note = (TextView)findViewById(R.id.texte_note);
-        img_check = (ImageView)findViewById(R.id.img_check);
-
+        graph = new ManagerElementsGraphiques(this);
+        graph.initialiserElementsGraphiques();
 
         // Déclenchement de la fonctionnalité
-        start_button_identifier_tonalite.setOnClickListener(new View.OnClickListener() {
+        graph.boutonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Apparition des éléments à ajouter
-                texte_ecoute.setVisibility(View.VISIBLE);
-                texte_jouez.setVisibility(View.VISIBLE);
-                progress_bar.setVisibility(View.VISIBLE);
-                barre_horizontale_3.setVisibility(View.VISIBLE);
-                stop_button_identifier_tonalite.setVisibility(View.VISIBLE);
-                texte_tonalites_compatibles.setVisibility(View.VISIBLE);
-
-                // Retrait des éléments inutiles
-                start_button_identifier_tonalite.setVisibility(View.INVISIBLE);
-                barre_horizontale_2.setVisibility(View.INVISIBLE);
-
-                //Initialisation des managers
-                audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
+                graph.lancerEcoute();
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
-
-                // Initialisation du thread d'affichage de note
-                AfficherNote = new Thread(new Runnable() { public void run() { afficherNote(); } });
-
-                // On lance l'écoute
-                audioManager.run();
-                try {
-                    stopAff = false;
-                    AfficherNote.start();
-                } catch (Throwable t) {
-                    // Message d'erreur à dev
-                }
+                gammeManager = new ManagerGamme();
+                arreterFonctionnalite = false;
+                GererNotesEtGammes = new Thread(new Runnable() { public void run() { identifierGammes(); } });
+                try { GererNotesEtGammes.start(); }
+                catch (Throwable t){}
             }
         });
 
-
         // Arrêt de la fonctionnalité
-        stop_button_identifier_tonalite.setOnClickListener(new View.OnClickListener() {
+        graph.boutonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Arrêt du thread
-                stopAff = true;
-                try {
-                    AfficherNote.join();
-                }
-                catch(InterruptedException e) {
-                    // Message d'erreur à dev
-                }
-
-                // Retrait des éléments inutiles
-                texte_ecoute.setVisibility(View.INVISIBLE);
-                texte_jouez.setVisibility(View.INVISIBLE);
-                progress_bar.setVisibility(View.INVISIBLE);
-                barre_horizontale_3.setVisibility(View.INVISIBLE);
-                stop_button_identifier_tonalite.setVisibility(View.INVISIBLE);
-                texte_tonalites_compatibles.setVisibility(View.INVISIBLE);
-                img_check.setVisibility(View.INVISIBLE);
-                texte_note.setVisibility(View.INVISIBLE);
-
-                // Réapparition des éléments utiles
-                start_button_identifier_tonalite.setVisibility(View.VISIBLE);
-                barre_horizontale_2.setVisibility(View.VISIBLE);
+                arreterFonctionnalite = true;
+                noteManager.arreterRecherche();
+                try { GererNotesEtGammes.join(); }
+                catch(InterruptedException e){}
+                graph.arreterEcoute();
             }
         });
     }
 
-    private void afficherNote() {
-        final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
-        final double PROPORTION_DE_NOTES_REQUISE = 0.9;
+    private void identifierGammes() {
+        while(!arreterFonctionnalite) {
+            Note noteTrouvee = noteManager.getNote();
 
-        Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
-        double frequence;
-        Note noteProche;
-        int nombreOccurence;
+            if (noteTrouvee.toString().compareTo(derniereNoteTrouvee.toString()) != 0) {
+                derniereNoteTrouvee = noteTrouvee;
+                graph.afficherSurUIThread(graph.texteNoteCourante, noteTrouvee.toString());
 
+                List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(noteTrouvee.toString());
+                double pourcentageDeCompatibiliteDeLaGamme1 = Math.ceil(((double)gammes.get(0).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme2 = Math.ceil(((double)gammes.get(1).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme3 = Math.ceil(((double)gammes.get(2).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme4 = Math.ceil(((double)gammes.get(3).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme5 = Math.ceil(((double)gammes.get(4).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
+                double pourcentageDeCompatibiliteDeLaGamme6 = Math.ceil(((double)gammes.get(5).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
 
-        while(!stopAff) {
-            try {
-                frequence = audioManager.getFrequenceForte();
-
-                if (noteManager.estUneNote(frequence)) {
-                    noteProche = noteManager.getNoteLaPlusProche(frequence);
-                    nombreOccurence = 0;
-
-                    // décalage des dernières notes
-                    for (int i = dernieresNotes.length-1; i > 0; i--) {
-                        dernieresNotes[i] = dernieresNotes[i-1];
-                    }
-                    // Insertion de la nouvelle note
-                    dernieresNotes[0] = noteProche;
-
-                    // On compte le nombre d'occurence de la nouvelle note dans le tableau
-                    for (int j = 0; j <dernieresNotes.length; j++) {
-                        if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
-                            nombreOccurence++;
-                        }
-                    }
-
-                    // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note
-                    if (nombreOccurence / dernieresNotes.length >= PROPORTION_DE_NOTES_REQUISE) {
-                        // Affichage de la note
-                        if (noteProche.toString().compareTo(texte_note.getText().toString()) != 0) {
-                            texte_note.setVisibility(View.INVISIBLE);
-                            texte_note.setText(noteProche.toString());
-                            texte_note.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }
-            }catch(Throwable t){
-                t.printStackTrace();
+                graph.afficherSurUIThread(graph.boutonGamme1, gammes.get(0).nom());
+                graph.afficherSurUIThread(graph.boutonGamme2, gammes.get(1).nom());
+                graph.afficherSurUIThread(graph.boutonGamme3, gammes.get(2).nom());
+                graph.afficherSurUIThread(graph.boutonGamme4, gammes.get(3).nom());
+                graph.afficherSurUIThread(graph.boutonGamme5, gammes.get(4).nom());
+                graph.afficherSurUIThread(graph.boutonGamme6, gammes.get(5).nom());
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme1, pourcentageDeCompatibiliteDeLaGamme1 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme2, pourcentageDeCompatibiliteDeLaGamme2 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme3, pourcentageDeCompatibiliteDeLaGamme3 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme4, pourcentageDeCompatibiliteDeLaGamme4 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme5, pourcentageDeCompatibiliteDeLaGamme5 + "%");
+                graph.afficherSurUIThread(graph.texteCompatibiliteGamme6, pourcentageDeCompatibiliteDeLaGamme6 + "%");
             }
         }
     }

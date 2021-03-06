@@ -9,6 +9,11 @@ public class Note {
         this.frequence = frequence;
     }
 
+    public Note() {
+        this.note = 0;
+        this.frequence = 0;
+    }
+
     public String toString() {
         switch (note) {
             case 1:
