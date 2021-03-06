@@ -71,6 +71,7 @@ public class ManagerElementsGraphiques {
         texteTonalitesCompatibles.setVisibility(View.VISIBLE);
         boutonGamme1.setVisibility(View.VISIBLE);
         texteCompatibiliteGamme1.setVisibility(VISIBLE);
+        texteNoteCourante.setVisibility(View.VISIBLE);
 
         // Retrait des éléments inutiles
         boutonStart.setVisibility(View.INVISIBLE);
@@ -89,12 +90,23 @@ public class ManagerElementsGraphiques {
         texteTonalitesCompatibles.setVisibility(View.INVISIBLE);
         img_check.setVisibility(View.INVISIBLE);
         texteNoteCourante.setVisibility(View.INVISIBLE);
-        boutonGamme1.setVisibility(INVISIBLE);
-        texteCompatibiliteGamme1.setVisibility(INVISIBLE);
+        boutonGamme1.setVisibility(View.INVISIBLE);
+        texteCompatibiliteGamme1.setVisibility(View.INVISIBLE);
 
         // Réapparition des éléments utiles
         boutonStart.setVisibility(View.VISIBLE);
         barre_horizontale_2.setVisibility(View.VISIBLE);
         // ---------------------------------------------------------- \\
+    }
+
+    protected void afficherSurUIThread(final TextView elementAModifier, final String texte) {
+        try {
+            page.runOnUiThread(new Runnable() {
+                @Override
+                    public void run() {
+                        elementAModifier.setText(texte);
+                    }
+                });
+            } catch (Throwable e) {}
     }
 }

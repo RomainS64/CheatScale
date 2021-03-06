@@ -55,14 +55,15 @@ public class ManagerNote {
     private double margeErreur = 1.5;
 
     // Paramètres de sensibilité de la recherche de note
-    final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
-    final double PROPORTION_DE_NOTES_REQUISE = 0.9;
+    private final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
+    private final double PROPORTION_DE_NOTES_REQUISE = 0.9;
 
-    Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
-    double frequence;
-    Note noteProche = new Note();
-    int nombreOccurence;
-    ManagerAudio audioManager = new ManagerAudio();
+    private Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
+    private double frequence;
+    private Note noteProche = new Note();
+    private int nombreOccurence;
+    private ManagerAudio audioManager = new ManagerAudio();
+    private boolean continuerRechercheNote;
 
     public ManagerNote() { definirNotes(); audioManager.run(); }
     public ManagerNote(double margeErreur){
@@ -70,38 +71,42 @@ public class ManagerNote {
         definirNotes();
     }
 
+    public void arreterRecherche() { continuerRechercheNote = false; }
+
     public Note getNote() {
-        try {
-            frequence = audioManager.getFrequenceForte();
+        continuerRechercheNote = true;
+        while (continuerRechercheNote) {
+            try {
+                frequence = audioManager.getFrequenceForte();
 
-            if (estUneNote(frequence)) {
-                noteProche = getNoteLaPlusProche(frequence);
-                nombreOccurence = 0;
+                if (estUneNote(frequence)) {
+                    noteProche = getNoteLaPlusProche(frequence);
+                    nombreOccurence = 0;
 
-                // décalage des dernières notes
-                for (int i = dernieresNotes.length-1; i > 0; i--) {
-                    dernieresNotes[i] = dernieresNotes[i-1];
-                }
-                // Insertion de la nouvelle note
-                dernieresNotes[0] = noteProche;
+                    // décalage des dernières notes
+                    for (int i = dernieresNotes.length - 1; i > 0; i--) {
+                        dernieresNotes[i] = dernieresNotes[i - 1];
+                    }
+                    // Insertion de la nouvelle note
+                    dernieresNotes[0] = noteProche;
 
-                // On compte le nombre d'occurence de la nouvelle note dans le tableau
-                for (int j = 0; j <dernieresNotes.length; j++) {
-                    try {
-                        if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
-                            nombreOccurence++;
+                    // On compte le nombre d'occurence de la nouvelle note dans le tableau
+                    for (int j = 0; j < dernieresNotes.length; j++) {
+                        try {
+                            if (dernieresNotes[j].toString().compareTo(noteProche.toString()) == 0) {
+                                nombreOccurence++;
+                            }
+                        } catch (Throwable t) {
                         }
                     }
-                    catch(Throwable t) {}
-                }
 
-                // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note et on la renvoie
-                if (nombreOccurence / dernieresNotes.length >= PROPORTION_DE_NOTES_REQUISE) {
-                    return noteProche;
+                    // Si la noteCourante est en proportion satisfaisante dans le tableau, on valide la note et on la renvoie
+                    if (nombreOccurence / dernieresNotes.length >= PROPORTION_DE_NOTES_REQUISE) {
+                        return noteProche;
+                    }
                 }
-            }
+            } catch (Throwable t) {}
         }
-        catch(Throwable t) {}
         return noteProche;
     }
 
