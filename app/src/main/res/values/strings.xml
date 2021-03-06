@@ -9,4 +9,14 @@
     <string name="start">start</string>
     <string name="moins">-</string>
     <string name="plus">+</string>
+    <string name="jouez_une_note">Jouez une note</string>
+    <string name="gamme_5">GAMME 5</string>
+    <string name="gamme_6">GAMME 6</string>
+    <string name="gamme_4">GAMME 4</string>
+    <string name="gamme_3">GAMME 3</string>
+    <string name="gamme_2">GAMME 2</string>
+    <string name="ecoute_en_cours">Ecoute en cours</string>
+    <string name="tonalit_s_compatibles">Tonalités compatibles :</string>
+    <string name="gamme_1">GAMME 1</string>
+    <string name="todo">TODO</string>
 </resources>
