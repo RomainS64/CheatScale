@@ -28,12 +28,9 @@ public class ScaleFinder extends AppCompatActivity {
         //Initialisation des managers
         audioManager = new com.example.scalefinder.detectionnote.ManagerAudio();
         noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
-
         //Initialisation des textes
         txt = findViewById(R.id.txt);
         note = findViewById(R.id.note);
-
-
         //initialisation des boutons
         start = findViewById(R.id.start);
         stop = findViewById(R.id.stop);
