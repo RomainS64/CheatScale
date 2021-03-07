@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#000000"
     android:layout_height="match_parent"
     tools:context="com.example.identifiergamme.IdentifierGamme">
 
@@ -10,104 +11,114 @@
         android:id="@+id/texte_gamme5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginLeft="188dp"
-        android:layout_marginTop="628dp"
+        android:layout_marginTop="24dp"
         android:text="         "
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/texte_gamme6"
+        app:layout_constraintStart_toEndOf="@+id/texte_gamme4"
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme5" />
 
     <Button
         android:id="@+id/button_gamme5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="568dp"
-        android:text="GAMME 5"
+        android:layout_marginTop="50dp"
+        android:text="@string/gamme_5"
+        android:background="@drawable/bouton_gamme"
+        android:textColor="@color/colorAccent"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button_gamme6"
+        app:layout_constraintStart_toEndOf="@+id/button_gamme4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_gamme2" />
 
     <Button
         android:id="@+id/button_gamme6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="292dp"
-        android:layout_marginLeft="292dp"
-        android:layout_marginTop="568dp"
-        android:text="GAMME 6"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/gamme_6"
+        android:background="@drawable/bouton_gamme"
+        android:textColor="@color/colorAccent"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_gamme3" />
 
     <Button
         android:id="@+id/button_gamme4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="568dp"
-        android:text="GAMME 4"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/gamme_4"
+        android:background="@drawable/bouton_gamme"
+        android:textColor="@color/colorAccent"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/texte_gamme1" />
 
     <TextView
         android:id="@+id/texte_gamme3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="324dp"
-        android:layout_marginLeft="324dp"
-        android:layout_marginTop="508dp"
+        android:layout_width="36dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
         android:text="         "
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme3" />
 
     <TextView
         android:id="@+id/texte_gamme2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="186dp"
-        android:layout_marginLeft="186dp"
-        android:layout_marginTop="508dp"
+        android:layout_marginTop="24dp"
         android:text="         "
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/texte_gamme3"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toEndOf="@+id/texte_gamme1"
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme2" />
 
     <Button
         android:id="@+id/button_gamme3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="292dp"
-        android:layout_marginLeft="292dp"
-        android:layout_marginTop="452dp"
-        android:text="GAMME 3"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bouton_gamme"
+        android:text="@string/gamme_3"
+        android:textColor="@color/colorAccent"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_tonalites_compatibles" />
 
     <Button
         android:id="@+id/button_gamme2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="452dp"
-        android:text="GAMME 2"
+        android:layout_marginTop="15dp"
+        android:text="@string/gamme_2"
+        android:background="@drawable/bouton_gamme"
+        android:textColor="@color/colorAccent"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button_gamme3"
+        app:layout_constraintStart_toEndOf="@+id/button_gamme1"
+        app:layout_constraintTop_toBottomOf="@+id/texte_tonalites_compatibles" />
 
     <View
         android:id="@+id/barre_horizontale_2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="220dp"
-        android:background="@android:color/darker_gray"
+        android:background="#FFFFFF"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-16dp" />
@@ -116,21 +127,23 @@
         android:id="@+id/barre_horizontale_3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="376dp"
-        android:background="@android:color/darker_gray"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/texte_tonalites_compatibles"
+        app:layout_constraintTop_toBottomOf="@+id/stop_button_identifier_tonalite"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
         android:layout_marginTop="24dp"
         android:text="@string/identifier_une_tonalit"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,59 +151,64 @@
         android:id="@+id/barre_horizontale_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="84dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/start_button_identifier_tonalite"
         android:layout_width="141dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="112dp"
+        android:layout_height="65dp"
+        android:background="@drawable/bouton_startstop"
         android:text="@string/start_button"
+        android:textColor="@color/colorAccent"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/barre_horizontale_2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barre_horizontale_1" />
 
     <Button
         android:id="@+id/stop_button_identifier_tonalite"
         android:layout_width="141dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="284dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bouton_startstop"
         android:text="@string/stop_button"
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/img_check" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyle"
         android:layout_width="81dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="264dp"
-        android:layout_marginLeft="264dp"
-        android:layout_marginTop="160dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="66dp"
+        android:layout_marginBottom="24dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/barre_horizontale_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/texte_ecoute" />
 
     <TextView
         android:id="@+id/texte_jouez"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="112dp"
-        android:text="Jouez une note"
+        android:layout_marginTop="27dp"
+        android:text="@string/jouez_une_note"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barre_horizontale_1" />
 
     <TextView
         android:id="@+id/texte_ecoute"
@@ -198,97 +216,104 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:layout_marginLeft="84dp"
-        android:layout_marginTop="172dp"
-        android:text="Ecoute en cours"
+        android:layout_marginTop="16dp"
+        android:text="@string/ecoute_en_cours"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/texte_jouez" />
 
     <TextView
         android:id="@+id/texte_tonalites_compatibles"
         android:layout_width="275dp"
         android:layout_height="44dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="400dp"
-        android:text="Tonalités compatibles :"
+        android:layout_marginTop="14dp"
+        android:text="@string/tonalit_s_compatibles"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barre_horizontale_3" />
 
     <ImageView
         android:id="@+id/img_check"
         android:layout_width="79dp"
         android:layout_height="48dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="11dp"
+        android:contentDescription="@string/todo"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/texte_note"
+        app:layout_constraintTop_toBottomOf="@+id/barre_horizontale_2"
         app:srcCompat="@drawable/check" />
 
     <TextView
         android:id="@+id/texte_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="14dp"
         android:text="        "
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barre_horizontale_2" />
 
     <Button
         android:id="@+id/button_gamme1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="452dp"
-        android:text="GAMME 1"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/gamme_1"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/bouton_gamme"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/texte_tonalites_compatibles" />
 
     <TextView
         android:id="@+id/texte_gamme1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="508dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#FFFFFF"
         android:text="         "
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme1" />
 
     <TextView
         android:id="@+id/texte_gamme4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="628dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="24dp"
         android:text="         "
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme4" />
 
     <TextView
         android:id="@+id/texte_gamme6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="324dp"
-        android:layout_marginLeft="324dp"
-        android:layout_marginTop="632dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
         android:text="         "
+        android:textColor="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_gamme6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

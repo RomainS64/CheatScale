@@ -42,6 +42,7 @@ public class IdentifierGamme extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 graph.lancerEcoute();
+                graph.reinitialiserAffichage();
                 noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
                 gammeManager = new ManagerGamme();
                 arreterFonctionnalite = false;
