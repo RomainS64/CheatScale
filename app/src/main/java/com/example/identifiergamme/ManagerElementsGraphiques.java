@@ -149,4 +149,20 @@ public class ManagerElementsGraphiques {
                 });
             } catch (Throwable e) {}
     }
+
+    protected void reinitialiserAffichage() {
+        texteNoteCourante.setText("NOTE");
+        boutonGamme1.setText("GAMME 1");
+        boutonGamme2.setText("GAMME 2");
+        boutonGamme3.setText("GAMME 3");
+        boutonGamme4.setText("GAMME 4");
+        boutonGamme5.setText("GAMME 5");
+        boutonGamme6.setText("GAMME 6");
+        texteCompatibiliteGamme1.setText("");
+        texteCompatibiliteGamme2.setText("");
+        texteCompatibiliteGamme3.setText("");
+        texteCompatibiliteGamme4.setText("");
+        texteCompatibiliteGamme5.setText("");
+        texteCompatibiliteGamme6.setText("");
+    }
 }
