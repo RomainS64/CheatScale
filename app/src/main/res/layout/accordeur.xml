@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="#000000"
     tools:context="com.example.accordeur.Accordeur">
 
     <TextView
         android:id="@+id/noteAccordeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/accordeur"
-        android:textColor="#000000"
+        android:text=""
+        android:textColor="#FFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,6 +20,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.332" />
+
+    <TextView
+        android:id="@+id/titreAccordeur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="@string/accordeur"
+        android:textColor="#FFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/noteAccordeur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <SeekBar
         android:id="@+id/distanceAccordeur"

@@ -1,5 +1,6 @@
 package com.example.accordeur;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import static android.view.View.*;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Note;
@@ -27,11 +29,12 @@ public class Accordeur extends AppCompatActivity {
     SeekBar distanceNote;
 
     boolean ecoute = false;
-    int max = 10;
-    int min = -10;
+    int max = 100;
+    int min = -100;
 
 
     Thread ecouter;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class Accordeur extends AppCompatActivity {
         noteJouee = findViewById(R.id.noteAccordeur);
         distanceNote = findViewById(R.id.distanceAccordeur);
         distanceNote.setMax(max);
-        distanceNote.setMax(min);
+        distanceNote.setMin(min);
         managerNote = new ManagerNote();
 
         startStop.setOnClickListener(new OnClickListener() {
@@ -86,7 +89,10 @@ public class Accordeur extends AppCompatActivity {
                     @Override
                     public void run() {
                         noteJouee.setText(note.toString());
-                        distanceNote.setProgress((int)managerNote.getDistanceNoteLaPlusProche(managerNote.getAudioManager().getFrequenceForte()));
+
+                        distanceNote.setProgress((int)
+                                (managerNote.getDistanceNoteLaPlusProche
+                                        (managerNote.getAudioManager().getFrequenceForte())*10));
                     }
                 });
             } catch (Throwable e) {}
