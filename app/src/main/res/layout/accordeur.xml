@@ -8,14 +8,42 @@
     tools:context="com.example.accordeur.Accordeur">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/noteAccordeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/accordeur"
-        android:textSize="36sp"
         android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.332" />
+
+    <SeekBar
+        android:id="@+id/distanceAccordeur"
+        android:layout_width="325dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="340dp"
+        android:max="10"
+        android:progress="0"
+        android:min="-10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/noteAccordeur"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/startstopAccordeur"
+        android:layout_width="165dp"
+        android:layout_height="97dp"
+        android:text="start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceAccordeur"
+        app:layout_constraintVertical_bias="0.565" />
 </androidx.constraintlayout.widget.ConstraintLayout>
