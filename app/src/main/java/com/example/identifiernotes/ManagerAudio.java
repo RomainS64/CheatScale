@@ -9,7 +9,7 @@
  * float getFrequenceForte();Retourne la fréquence la plus significative;
  */
 
-package com.example.scalefinder.detectionnote;
+package com.example.identifiernotes;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -29,7 +29,7 @@ public class ManagerAudio {
     private boolean stop;
 
 
-    private com.example.scalefinder.detectionnote.FrequencyScanner scanner;
+    private com.example.identifiernotes.FrequencyScanner scanner;
 
 
 
@@ -46,7 +46,7 @@ public class ManagerAudio {
                 AudioFormat.ENCODING_PCM_16BIT,
                 minSize);
 
-        scanner  = new com.example.scalefinder.detectionnote.FrequencyScanner();
+        scanner  = new com.example.identifiernotes.FrequencyScanner();
 
         thRecord = new Thread(
                 new Runnable() {

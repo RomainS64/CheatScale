@@ -3,22 +3,17 @@ package com.example.identifiergamme;
 import android.os.Bundle;
 import static android.view.View.*;
 
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+
 import com.example.R;
 import com.example.Note;
-import com.example.scalefinder.detectionnote.ManagerNote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
 public class IdentifierGamme extends AppCompatActivity {
-    private com.example.scalefinder.detectionnote.ManagerNote noteManager;
+    private com.example.identifiernotes.ManagerNote noteManager;
     private ManagerGamme gammeManager;
     private ManagerElementsGraphiques graph;
     private Thread GererNotesEtGammes;
@@ -43,10 +38,12 @@ public class IdentifierGamme extends AppCompatActivity {
             public void onClick(View v) {
                 graph.lancerEcoute();
                 graph.reinitialiserAffichage();
-                noteManager = new com.example.scalefinder.detectionnote.ManagerNote();
+                noteManager = new com.example.identifiernotes.ManagerNote();
                 gammeManager = new ManagerGamme();
                 arreterFonctionnalite = false;
+
                 GererNotesEtGammes = new Thread(new Runnable() { public void run() { identifierGammes(); } });
+
                 try { GererNotesEtGammes.start(); }
                 catch (Throwable t){}
             }
@@ -74,6 +71,7 @@ public class IdentifierGamme extends AppCompatActivity {
                 graph.afficherSurUIThread(graph.texteNoteCourante, noteTrouvee.toString());
 
                 List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(noteTrouvee.toString());
+
                 double pourcentageDeCompatibiliteDeLaGamme1 = Math.ceil(((double)gammes.get(0).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
                 double pourcentageDeCompatibiliteDeLaGamme2 = Math.ceil(((double)gammes.get(1).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
                 double pourcentageDeCompatibiliteDeLaGamme3 = Math.ceil(((double)gammes.get(2).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);

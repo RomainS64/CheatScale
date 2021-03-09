@@ -2,8 +2,6 @@ package com.example.identifiergamme;
 
 import android.util.Log;
 
-import com.example.scalefinder.detectionnote.ManagerNote;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -8,10 +8,7 @@
  * 2)Savoir la note la plus proche: public int getNoteLaPlusProche(double frequence);
  * 3)Savoir la distance (en Hz) de la note la plus proche: public double getDistanceNoteLaPlusProche(double frequence);
  */
-package com.example.scalefinder.detectionnote;
-
-
-import android.util.Log;
+package com.example.identifiernotes;
 
 
 import java.util.ArrayList;
@@ -62,6 +59,8 @@ public class ManagerNote {
     private double frequence;
     private Note noteProche = new Note();
     private int nombreOccurence;
+
+
     private ManagerAudio audioManager = new ManagerAudio();
     private boolean continuerRechercheNote;
 
@@ -72,6 +71,7 @@ public class ManagerNote {
     }
 
     public void arreterRecherche() { continuerRechercheNote = false; }
+
 
     public Note getNote() {
         continuerRechercheNote = true;
@@ -127,6 +127,10 @@ public class ManagerNote {
         }
         return notes.get(noteProche-1);
     }
+    public ManagerAudio getAudioManager(){
+        return audioManager;
+    }
+
     public double getDistanceNoteLaPlusProche(double frequence) {
         int note = getNoteLaPlusProche(frequence).getNote();
         int gammeTemperee = getGammeTemperee(frequence);
