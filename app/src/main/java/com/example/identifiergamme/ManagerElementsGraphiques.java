@@ -1,5 +1,6 @@
 package com.example.identifiergamme;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -7,9 +8,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.R;
+import com.example.main.MainActivity;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class ManagerElementsGraphiques {
     // ---------- Eléments graphiques ---------- \\
