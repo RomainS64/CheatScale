@@ -15,36 +15,34 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:usesCleartextTraffic="true"
-        android:screenOrientation="portrait">
-
-        <activity android:name=".identifiergamme.IdentifierGamme">
-        </activity>
-
-
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".identifiergamme.InfosGamme"></activity>
+        <activity android:name=".identifiergamme.IdentifierGamme"></activity>
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".accordeur.Accordeur">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".metronome.PageMetronome">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

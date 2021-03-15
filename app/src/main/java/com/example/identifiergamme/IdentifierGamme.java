@@ -1,15 +1,14 @@
 package com.example.identifiergamme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import static android.view.View.*;
+import static androidx.core.content.ContextCompat.startActivity;
 
 import android.view.View;
-
 import com.example.R;
 import com.example.Note;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
 
 public class IdentifierGamme extends AppCompatActivity {
@@ -31,6 +30,16 @@ public class IdentifierGamme extends AppCompatActivity {
         // Initialisation des éléments graphiques
         graph = new ManagerElementsGraphiques(this);
         graph.initialiserElementsGraphiques();
+
+        graph.boutonGamme1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+
+            }
+        });
 
         // Déclenchement de la fonctionnalité
         graph.boutonStart.setOnClickListener(new View.OnClickListener() {
