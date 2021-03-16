@@ -9,59 +9,6 @@
 
 
     <TextView
-        android:id="@+id/texte_gamme5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="         "
-        android:textColor="#FFFFFF"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/texte_gamme6"
-        app:layout_constraintStart_toEndOf="@+id/texte_gamme4"
-        app:layout_constraintTop_toBottomOf="@+id/button_gamme5" />
-
-    <Button
-        android:id="@+id/button_gamme5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/gamme_5"
-        android:background="@drawable/bouton_gamme"
-        android:textColor="@color/colorAccent"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/button_gamme6"
-        app:layout_constraintStart_toEndOf="@+id/button_gamme4"
-        app:layout_constraintTop_toBottomOf="@+id/texte_gamme2" />
-
-    <Button
-        android:id="@+id/button_gamme6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/gamme_6"
-        android:background="@drawable/bouton_gamme"
-        android:textColor="@color/colorAccent"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texte_gamme3" />
-
-    <Button
-        android:id="@+id/button_gamme4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/gamme_4"
-        android:background="@drawable/bouton_gamme"
-        android:textColor="@color/colorAccent"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texte_gamme1" />
-
-    <TextView
         android:id="@+id/texte_gamme3"
         android:layout_width="36dp"
         android:layout_height="20dp"
@@ -291,31 +238,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_gamme1" />
 
-    <TextView
-        android:id="@+id/texte_gamme4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="24dp"
-        android:text="         "
-        android:textColor="#FFFFFF"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_gamme4" />
-
-    <TextView
-        android:id="@+id/texte_gamme6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:text="         "
-        android:textColor="#FFFFFF"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_gamme6" />
-    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,8 @@ public class IdentifierGamme extends AppCompatActivity {
     private Thread GererNotesEtGammes;
     private boolean arreterFonctionnalite = false;
     private Note derniereNoteTrouvee = new Note();
+    protected static Gamme gammeChoisie;
+    List<Gamme> gammes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,25 @@ public class IdentifierGamme extends AppCompatActivity {
         graph.boutonGamme1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                gammeChoisie = gammes.get(0);
                 Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
                 startActivity(openInfosGamme); //Ouverture de la page InfosGammes
-
+            }
+        });
+        graph.boutonGamme2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gammeChoisie = gammes.get(1);
+                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+            }
+        });
+        graph.boutonGamme3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gammeChoisie = gammes.get(2);
+                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
             }
         });
 
@@ -79,27 +96,18 @@ public class IdentifierGamme extends AppCompatActivity {
                 derniereNoteTrouvee = noteTrouvee;
                 graph.afficherSurUIThread(graph.texteNoteCourante, noteTrouvee.toString());
 
-                List<Gamme> gammes = gammeManager.ajouterOccurenceDeNote(noteTrouvee.toString());
+                gammes = gammeManager.ajouterOccurenceDeNote(noteTrouvee.toString());
 
                 double pourcentageDeCompatibiliteDeLaGamme1 = Math.ceil(((double)gammes.get(0).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
                 double pourcentageDeCompatibiliteDeLaGamme2 = Math.ceil(((double)gammes.get(1).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
                 double pourcentageDeCompatibiliteDeLaGamme3 = Math.ceil(((double)gammes.get(2).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
-                double pourcentageDeCompatibiliteDeLaGamme4 = Math.ceil(((double)gammes.get(3).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
-                double pourcentageDeCompatibiliteDeLaGamme5 = Math.ceil(((double)gammes.get(4).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
-                double pourcentageDeCompatibiliteDeLaGamme6 = Math.ceil(((double)gammes.get(5).scoreGamme() / (double)gammeManager.nombreDeNotesAjoutees()) * 100);
 
                 graph.afficherSurUIThread(graph.boutonGamme1, gammes.get(0).nom());
                 graph.afficherSurUIThread(graph.boutonGamme2, gammes.get(1).nom());
                 graph.afficherSurUIThread(graph.boutonGamme3, gammes.get(2).nom());
-                graph.afficherSurUIThread(graph.boutonGamme4, gammes.get(3).nom());
-                graph.afficherSurUIThread(graph.boutonGamme5, gammes.get(4).nom());
-                graph.afficherSurUIThread(graph.boutonGamme6, gammes.get(5).nom());
                 graph.afficherSurUIThread(graph.texteCompatibiliteGamme1, pourcentageDeCompatibiliteDeLaGamme1 + "%");
                 graph.afficherSurUIThread(graph.texteCompatibiliteGamme2, pourcentageDeCompatibiliteDeLaGamme2 + "%");
                 graph.afficherSurUIThread(graph.texteCompatibiliteGamme3, pourcentageDeCompatibiliteDeLaGamme3 + "%");
-                graph.afficherSurUIThread(graph.texteCompatibiliteGamme4, pourcentageDeCompatibiliteDeLaGamme4 + "%");
-                graph.afficherSurUIThread(graph.texteCompatibiliteGamme5, pourcentageDeCompatibiliteDeLaGamme5 + "%");
-                graph.afficherSurUIThread(graph.texteCompatibiliteGamme6, pourcentageDeCompatibiliteDeLaGamme6 + "%");
             }
         }
     }
