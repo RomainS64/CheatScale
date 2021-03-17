@@ -36,25 +36,37 @@ public class IdentifierGamme extends AppCompatActivity {
         graph.boutonGamme1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gammeChoisie = gammes.get(0);
-                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
-                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                try {
+                    gammeChoisie = gammes.get(0);
+                    arreterRecherche();
+                    Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                    startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                }
+                catch (Exception e) {}
             }
         });
         graph.boutonGamme2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gammeChoisie = gammes.get(1);
-                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
-                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                try {
+                    gammeChoisie = gammes.get(1);
+                    arreterRecherche();
+                    Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                    startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                }
+                catch (Exception e) {}
             }
         });
         graph.boutonGamme3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gammeChoisie = gammes.get(2);
-                Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
-                startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                try {
+                    gammeChoisie = gammes.get(2);
+                    arreterRecherche();
+                    Intent openInfosGamme = new Intent(IdentifierGamme.this, InfosGamme.class); //Declaration de l'activité pour ouvrir la page InfosGamme
+                    startActivity(openInfosGamme); //Ouverture de la page InfosGammes
+                }
+                catch (Exception e) {}
             }
         });
 
@@ -79,13 +91,16 @@ public class IdentifierGamme extends AppCompatActivity {
         graph.boutonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arreterFonctionnalite = true;
-                noteManager.arreterRecherche();
-                try { GererNotesEtGammes.join(); }
-                catch(InterruptedException e){}
-                graph.arreterEcoute();
+                arreterRecherche();
             }
         });
+    }
+    private void arreterRecherche() {
+        arreterFonctionnalite = true;
+        noteManager.arreterRecherche();
+        try { GererNotesEtGammes.join(); }
+        catch(InterruptedException e){}
+        graph.arreterEcoute();
     }
 
     private void identifierGammes() {

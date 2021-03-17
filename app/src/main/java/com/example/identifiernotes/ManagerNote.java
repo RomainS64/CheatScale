@@ -52,8 +52,8 @@ public class ManagerNote {
     private double margeErreur = 1.5;
 
     // Paramètres de sensibilité de la recherche de note
-    private final int NOMBRE_DE_NOTES_A_ANALYSER = 10;
-    private final double PROPORTION_DE_NOTES_REQUISE = 0.9;
+    private final int NOMBRE_DE_NOTES_A_ANALYSER = 5;
+    private final double PROPORTION_DE_NOTES_REQUISE = 1;
 
     private Note[] dernieresNotes = new Note[NOMBRE_DE_NOTES_A_ANALYSER];
     private double frequence;
