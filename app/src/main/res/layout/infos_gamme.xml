@@ -7,120 +7,350 @@
     android:background="#000000"
     tools:context="com.example.identifiergamme.InfosGamme">
 
-    <TextView
-        android:id="@+id/texte_nom_gamme_choisie"
-        android:layout_width="52dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="40dp"
-        android:text="GAMME"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/texte_accord_3"
-        android:layout_width="15dp"
+        android:id="@+id/texte_accords_compatibles__relative_mineure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="272dp"
+        android:text="Degrés de la relative mineure"
+        android:textColor="@color/colorAccent"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_7"
+        android:layout_width="45dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="316dp"
+        android:text="VII"
+        app:layout_constraintStart_toEndOf="@+id/texte_accord_6"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_degre_relative_mineure_4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="200dp"
+        android:text="IV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_5"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="316dp"
+        android:text="V"
+        app:layout_constraintStart_toEndOf="@+id/texte_accord_4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_degre_relative_mineure_5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="200dp"
+        android:text="V"
+        app:layout_constraintStart_toEndOf="@+id/texte_degre_4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_3"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="316dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:text="III"
         app:layout_constraintEnd_toStartOf="@+id/texte_accord_4"
         app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
 
-
     <TextView
-        android:id="@+id/texte_accord_1"
-        android:layout_width="15dp"
+        android:id="@+id/texte_degre_relative_mineure_1"
+        android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:text="I"
-        app:layout_constraintEnd_toStartOf="@+id/texte_accord_2"
-        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+        app:layout_constraintEnd_toStartOf="@+id/texte_degre_2"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
-        android:id="@+id/texte_accord_2"
-        android:layout_width="15dp"
+        android:id="@+id/texte_accord_relative_mineure_2"
+        android:layout_width="40dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="316dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="II"
         app:layout_constraintEnd_toStartOf="@+id/texte_accord_3"
         app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
 
     <TextView
-        android:id="@+id/texte_accord_5"
-        android:layout_width="15dp"
+        android:id="@+id/texte_degre_relative_mineure_7"
+        android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="200dp"
+        android:text="VII"
+        app:layout_constraintStart_toEndOf="@+id/texte_degre_6"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_degre_relative_mineure_2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="II"
+        app:layout_constraintEnd_toStartOf="@+id/texte_degre_3"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_degre_relative_mineure_3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="III"
+        app:layout_constraintEnd_toStartOf="@+id/texte_degre_4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_4"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginTop="316dp"
+        android:text="IV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_6"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="316dp"
+        android:text="VI"
+        app:layout_constraintStart_toEndOf="@+id/texte_accord_5"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_degre_relative_mineure_6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="200dp"
+        android:text="VI"
+        app:layout_constraintStart_toEndOf="@+id/texte_degre_5"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
+        android:id="@+id/texte_accord_relative_mineure_1"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="316dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="I"
+        app:layout_constraintEnd_toStartOf="@+id/texte_accord_2"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_titre_notes_de_la_gamme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Notes de la gamme"
+        android:textColor="@color/colorAccent"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_notes_de_la_gamme"
+        android:layout_width="384dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="48dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_nom_gamme_choisie"
+        android:layout_width="223dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
         android:layout_marginTop="24dp"
+        android:text="GAMME"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texte_accords_compatibles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="92dp"
+        android:text="Accords compatibles avec la gamme"
+        android:textColor="@color/colorAccent"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_7"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="136dp"
+        android:text="VII"
+        app:layout_constraintStart_toEndOf="@+id/texte_accord_6"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_1"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="I"
+        app:layout_constraintEnd_toStartOf="@+id/texte_accord_2"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_relative_mineure"
+        android:layout_width="260dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="228dp"
+        android:text=""
+        android:textColor="@color/colorAccent"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_2"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="II"
+        app:layout_constraintEnd_toStartOf="@+id/texte_accord_3"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_3"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="III"
+        app:layout_constraintEnd_toStartOf="@+id/texte_accord_4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+
+    <TextView
+        android:id="@+id/texte_accord_5"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="136dp"
         android:text="V"
         app:layout_constraintStart_toEndOf="@+id/texte_accord_4"
         app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
 
     <TextView
         android:id="@+id/texte_accord_6"
-        android:layout_width="15dp"
+        android:layout_width="40dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="136dp"
         android:text="VI"
         app:layout_constraintStart_toEndOf="@+id/texte_accord_5"
         app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
 
     <TextView
-        android:id="@+id/texte_accord_7"
-        android:layout_width="15dp"
+        android:id="@+id/texte_degre_6"
+        android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        android:text="VII"
-        app:layout_constraintStart_toEndOf="@+id/texte_accord_6"
-        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
-
-    <TextView
-        android:id="@+id/texte_accord_4"
-        android:layout_width="15dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
-        android:layout_marginTop="24dp"
-        android:text="IV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
+        android:layout_marginTop="20dp"
+        android:text="VI"
+        app:layout_constraintStart_toEndOf="@+id/texte_degre_5"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
         android:id="@+id/texte_degre_4"
-        android:layout_width="15dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginLeft="192dp"
         android:layout_marginTop="20dp"
         android:text="IV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
+        android:id="@+id/texte_degre_5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:text="V"
+        app:layout_constraintStart_toEndOf="@+id/texte_degre_4"
+        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+
+    <TextView
         android:id="@+id/texte_degre_1"
-        android:layout_width="15dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:text="I"
         app:layout_constraintEnd_toStartOf="@+id/texte_degre_2"
         app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
         android:id="@+id/texte_degre_2"
-        android:layout_width="15dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
@@ -131,46 +361,35 @@
 
     <TextView
         android:id="@+id/texte_degre_3"
-        android:layout_width="15dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:text="III"
         app:layout_constraintEnd_toStartOf="@+id/texte_degre_4"
         app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
-        android:id="@+id/texte_degre_6"
-        android:layout_width="15dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
-        android:text="VI"
-        app:layout_constraintStart_toEndOf="@+id/texte_degre_5"
-        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
-
-    <TextView
         android:id="@+id/texte_degre_7"
-        android:layout_width="15dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="20dp"
         android:text="VII"
         app:layout_constraintStart_toEndOf="@+id/texte_degre_6"
         app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
 
     <TextView
-        android:id="@+id/texte_degre_5"
-        android:layout_width="15dp"
+        android:id="@+id/texte_accord_4"
+        android:layout_width="40dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
-        android:text="V"
-        app:layout_constraintStart_toEndOf="@+id/texte_degre_4"
-        app:layout_constraintTop_toBottomOf="@+id/texte_accord_4" />
+        android:layout_marginStart="180dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="136dp"
+        android:text="IV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texte_nom_gamme_choisie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

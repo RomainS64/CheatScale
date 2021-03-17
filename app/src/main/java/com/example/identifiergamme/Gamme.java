@@ -6,12 +6,14 @@ import java.util.List;
 public class Gamme {
     private String nom;
     private List<String> notesDeLaGamme;
+    private String relativeMineure;
     private int scoreGamme;
 
-    public Gamme(String nom, List<String> notesDeLaGamme) {
+    public Gamme(String nom, List<String> notesDeLaGamme, String relativeMineure) {
         this.nom = nom;
         this.notesDeLaGamme = notesDeLaGamme;
         this.scoreGamme = 0;
+        this.relativeMineure = relativeMineure;
     }
 
     public String nom() { return this.nom; }
@@ -26,4 +28,7 @@ public class Gamme {
         }
         return false;
     }
+
+    public List<String> notesDeLaGamme() { return this.notesDeLaGamme; }
+    public String relativeMineure() { return this.relativeMineure; }
 }

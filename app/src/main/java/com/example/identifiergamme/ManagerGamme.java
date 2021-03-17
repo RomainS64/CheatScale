@@ -10,18 +10,18 @@ public class ManagerGamme {
     private int nombreDeNotesAjoutees;
 
     public ManagerGamme() {
-        this.gammesTriees.add(new Gamme("DO", new ArrayList<String>() {{ add("DO"); add("RE"); add("MI"); add("FA"); add("SOL"); add("LA"); add("SI");}}));
-        this.gammesTriees.add(new Gamme("REB", new ArrayList<String>() {{ add("REB"); add("MIB"); add("FA"); add("SOLB"); add("LAB"); add("SIB"); add("DO");}}));
-        this.gammesTriees.add(new Gamme("RE", new ArrayList<String>() {{ add("RE"); add("MI"); add("SOLB"); add("SOL"); add("LA"); add("SI"); add("REB");}}));
-        this.gammesTriees.add(new Gamme("MIB", new ArrayList<String>() {{ add("MIB"); add("FA"); add("SOL"); add("LAB"); add("SIB"); add("DO"); add("RE");}}));
-        this.gammesTriees.add(new Gamme("MI", new ArrayList<String>() {{ add("MI"); add("SOLB"); add("LAB"); add("LA"); add("SI"); add("REB"); add("MIB");}}));
-        this.gammesTriees.add(new Gamme("FA", new ArrayList<String>() {{ add("FA"); add("SOL"); add("LA"); add("SIB"); add("DO"); add("RE"); add("MI");}}));
-        this.gammesTriees.add(new Gamme("SOLB", new ArrayList<String>() {{ add("SOLB"); add("LAB"); add("SIB"); add("DOB"); add("REB"); add("MIB"); add("FA");}}));
-        this.gammesTriees.add(new Gamme("SOL", new ArrayList<String>() {{ add("SOL"); add("LA"); add("SI"); add("DO"); add("RE"); add("MI"); add("SOLB");}}));
-        this.gammesTriees.add(new Gamme("LAB", new ArrayList<String>() {{ add("LAB"); add("SIB"); add("DO"); add("REB"); add("MIB"); add("FA"); add("SOL");}}));
-        this.gammesTriees.add(new Gamme("LA", new ArrayList<String>() {{ add("LA"); add("SI"); add("REB"); add("RE"); add("MI"); add("SOLB"); add("LAB");}}));
-        this.gammesTriees.add(new Gamme("SIB", new ArrayList<String>() {{ add("SIB"); add("DO"); add("RE"); add("MIB"); add("FA"); add("SOL"); add("LA");}}));
-        this.gammesTriees.add(new Gamme("SI", new ArrayList<String>() {{ add("SI"); add("REB"); add("MIB"); add("MI"); add("SOLB"); add("LAB"); add("SIB");}}));
+        this.gammesTriees.add(new Gamme("DO", new ArrayList<String>() {{ add("DO"); add("RE"); add("MI"); add("FA"); add("SOL"); add("LA"); add("SI");}}, "LAm"));
+        this.gammesTriees.add(new Gamme("REB", new ArrayList<String>() {{ add("REB"); add("MIB"); add("FA"); add("SOLB"); add("LAB"); add("SIB"); add("DO");}}, "SIBm"));
+        this.gammesTriees.add(new Gamme("RE", new ArrayList<String>() {{ add("RE"); add("MI"); add("SOLB"); add("SOL"); add("LA"); add("SI"); add("REB");}}, "SIm"));
+        this.gammesTriees.add(new Gamme("MIB", new ArrayList<String>() {{ add("MIB"); add("FA"); add("SOL"); add("LAB"); add("SIB"); add("DO"); add("RE");}}, "DOm"));
+        this.gammesTriees.add(new Gamme("MI", new ArrayList<String>() {{ add("MI"); add("SOLB"); add("LAB"); add("LA"); add("SI"); add("REB"); add("MIB");}}, "REBm"));
+        this.gammesTriees.add(new Gamme("FA", new ArrayList<String>() {{ add("FA"); add("SOL"); add("LA"); add("SIB"); add("DO"); add("RE"); add("MI");}}, "REm"));
+        this.gammesTriees.add(new Gamme("SOLB", new ArrayList<String>() {{ add("SOLB"); add("LAB"); add("SIB"); add("DOB"); add("REB"); add("MIB"); add("FA");}}, "MIBm"));
+        this.gammesTriees.add(new Gamme("SOL", new ArrayList<String>() {{ add("SOL"); add("LA"); add("SI"); add("DO"); add("RE"); add("MI"); add("SOLB");}}, "MIm"));
+        this.gammesTriees.add(new Gamme("LAB", new ArrayList<String>() {{ add("LAB"); add("SIB"); add("DO"); add("REB"); add("MIB"); add("FA"); add("SOL");}}, "FAm"));
+        this.gammesTriees.add(new Gamme("LA", new ArrayList<String>() {{ add("LA"); add("SI"); add("REB"); add("RE"); add("MI"); add("SOLB"); add("LAB");}}, "SOLBm"));
+        this.gammesTriees.add(new Gamme("SIB", new ArrayList<String>() {{ add("SIB"); add("DO"); add("RE"); add("MIB"); add("FA"); add("SOL"); add("LA");}}, "SOLm"));
+        this.gammesTriees.add(new Gamme("SI", new ArrayList<String>() {{ add("SI"); add("REB"); add("MIB"); add("MI"); add("SOLB"); add("LAB"); add("SIB");}}, "LABm"));
 
         nombreDeNotesAjoutees = 0;
     }
