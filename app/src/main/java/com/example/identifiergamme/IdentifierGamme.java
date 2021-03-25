@@ -1,6 +1,7 @@
 package com.example.identifiergamme;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import static android.view.View.*;
 import static androidx.core.content.ContextCompat.startActivity;
@@ -28,6 +29,7 @@ public class IdentifierGamme extends AppCompatActivity {
                 SYSTEM_UI_FLAG_FULLSCREEN | SYSTEM_UI_FLAG_HIDE_NAVIGATION   |
                 SYSTEM_UI_FLAG_LAYOUT_STABLE | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.identifier_gamme);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Initialisation des éléments graphiques
         graph = new ManagerElementsGraphiques(this);
