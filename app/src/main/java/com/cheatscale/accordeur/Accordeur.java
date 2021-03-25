@@ -1,9 +1,8 @@
-package com.example.accordeur;
+package com.cheatscale.accordeur;
 
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -14,12 +13,9 @@ import static android.view.View.*;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.Note;
-import com.example.R;
-import com.example.identifiernotes.ManagerNote;
-import com.example.metronome.Metronome;
-
-import org.w3c.dom.Text;
+import com.cheatscale.Note;
+import com.cheatscale.R;
+import com.cheatscale.identifiernotes.ManagerNote;
 
 
 public class Accordeur extends AppCompatActivity {

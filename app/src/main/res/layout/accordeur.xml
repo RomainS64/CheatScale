@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context="com.example.accordeur.Accordeur">
+    tools:context="com.cheatscale.accordeur.Accordeur">
 
     <TextView
         android:id="@+id/noteAccordeur"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:text="@string/accordeur"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorAccent"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/noteAccordeur"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +53,10 @@
 
     <Button
         android:id="@+id/startstopAccordeur"
-        android:layout_width="165dp"
-        android:layout_height="97dp"
+        android:layout_width="141dp"
+        android:layout_height="65dp"
         android:text="start"
+        android:background="@drawable/bouton_startstop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

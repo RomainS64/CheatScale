@@ -3,7 +3,7 @@
  *  @Author: shirkrin
  *  @OnlineSources: https://stackoverflow.com/questions/7649003/jtransforms-fft-in-android-from-pcm-data
  */
-package com.example.identifiernotes;
+package com.cheatscale.identifiernotes;
 
 import org.jtransforms.fft.DoubleFFT_1D;
 

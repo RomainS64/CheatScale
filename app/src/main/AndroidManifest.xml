@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example">
+    package="com.cheatscale">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,23 +21,23 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".identifiergamme.InfosGamme"></activity>
-        <activity android:name=".identifiergamme.IdentifierGamme"></activity>
-        <activity android:name=".main.MainActivity">
+            android:name="com.cheatscale.identifiergamme.InfosGamme"></activity>
+        <activity android:name="com.cheatscale.identifiergamme.IdentifierGamme"></activity>
+        <activity android:name="com.cheatscale.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".accordeur.Accordeur">
+        <activity android:name="com.cheatscale.accordeur.Accordeur">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".metronome.PageMetronome">
+        <activity android:name="com.cheatscale.metronome.PageMetronome">
             <intent-filter>
                 <action android:name="android.intent.action.SCALEFINDER" />
 

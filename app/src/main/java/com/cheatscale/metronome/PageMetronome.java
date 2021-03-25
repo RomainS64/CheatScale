@@ -1,9 +1,8 @@
-package com.example.metronome;
+package com.cheatscale.metronome;
 
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import static android.view.View.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.R;
+import com.cheatscale.R;
 
 
 

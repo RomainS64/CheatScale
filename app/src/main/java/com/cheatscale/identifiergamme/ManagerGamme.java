@@ -1,4 +1,4 @@
-package com.example.identifiergamme;
+package com.cheatscale.identifiergamme;
 
 import android.util.Log;
 
