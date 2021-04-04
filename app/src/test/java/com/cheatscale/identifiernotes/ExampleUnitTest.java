@@ -1,4 +1,4 @@
-package com.example.identifiernotes;
+package com.cheatscale.identifiernotes;
 
 import org.junit.Test;
 

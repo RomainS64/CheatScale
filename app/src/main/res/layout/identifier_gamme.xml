@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="#000000"
     android:layout_height="match_parent"
-    tools:context="com.example.identifiergamme.IdentifierGamme">
+    tools:context="com.cheatscale.identifiergamme.IdentifierGamme">
 
 
     <TextView

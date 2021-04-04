@@ -1,4 +1,4 @@
-package com.example;
+package com.cheatscale;
 
 public class Note {
     int note;

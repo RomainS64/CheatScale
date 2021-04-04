@@ -1,9 +1,8 @@
-package com.example.metronome;
+package com.cheatscale.metronome;
 
 
 import android.media.MediaPlayer;
 import android.util.Log;
-import com.example.R;
 
 public class Metronome {
     public MediaPlayer tic;

@@ -1,8 +1,8 @@
-package com.example.metronome;
+package com.cheatscale.metronome;
 
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import static android.view.View.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.R;
+import com.cheatscale.R;
 
 
 
@@ -31,6 +31,7 @@ public class PageMetronome extends AppCompatActivity {
                 SYSTEM_UI_FLAG_FULLSCREEN | SYSTEM_UI_FLAG_HIDE_NAVIGATION   |
                 SYSTEM_UI_FLAG_LAYOUT_STABLE | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.metronome);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         txtBpm = findViewById(R.id.txtbpm);
         barBpm = findViewById(R.id.seekbpm);

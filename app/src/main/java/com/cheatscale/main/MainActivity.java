@@ -1,21 +1,21 @@
-package com.example.main;
+package com.cheatscale.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import static android.view.View.*;
 import android.widget.Button;
 
-import com.example.R;
-import com.example.accordeur.*;
-import com.example.metronome.*;
-import com.example.identifiergamme.*;
+import com.cheatscale.R;
+import com.cheatscale.accordeur.*;
+import com.cheatscale.metronome.*;
+import com.cheatscale.identifiergamme.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 SYSTEM_UI_FLAG_FULLSCREEN | SYSTEM_UI_FLAG_HIDE_NAVIGATION   |
                 SYSTEM_UI_FLAG_LAYOUT_STABLE | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Demander la permission d'utiliser le microphone
         demanderPermission();

@@ -1,6 +1,5 @@
-package com.example.identifiergamme;
+package com.cheatscale.identifiergamme;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Gamme {

@@ -8,7 +8,7 @@
  * 2)Savoir la note la plus proche: public int getNoteLaPlusProche(double frequence);
  * 3)Savoir la distance (en Hz) de la note la plus proche: public double getDistanceNoteLaPlusProche(double frequence);
  */
-package com.example.identifiernotes;
+package com.cheatscale.identifiernotes;
 
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
-import com.example.Note;
+import com.cheatscale.Note;
 public class ManagerNote {
 
     //différentes notes
